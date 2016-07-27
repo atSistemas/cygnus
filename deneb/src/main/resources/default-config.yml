@@ -1,0 +1,23 @@
+# HTTP Server
+server:
+  port: 2222   # HTTP port
+  
+# Discovery Server Access
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://discovery-server:1111/eureka/
+
+# Spring properties
+spring:
+  thymeleaf:
+    cache: false             # Allow Thymeleaf templates to be reloaded at runtime
+    prefix: classpath:/deneb-service/templates/    # Trailing / mandatory
+                             # Template location for this application only
+
+# Map the error path to error template (for Thymeleaf)
+error:
+  path=/error
+
+
+

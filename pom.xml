@@ -8,9 +8,11 @@
     <url>http://maven.apache.org</url>
     <modules>
     	<module>configserver</module>
+		<module>eureka-server</module>
+		<module>adminServer</module>
 		<module>cygnus-model</module>
 		<module>deneb</module>
 		<module>sadr</module>
-		<module>eureka-server</module>
+		
     </modules>
 </project>

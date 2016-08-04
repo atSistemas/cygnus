@@ -2,6 +2,16 @@
 server:
   port: 2222   # HTTP port
   
+management:
+  context-path: /admin
+  
+logging:
+  file: logs/${spring.application.name}.log
+  level:
+    com.netflix.discovery: 'OFF'
+    org.springframework.cloud: 'DEBUG'
+    com.atsistemas: 'DEBUG'
+
 # Discovery Server Access
 eureka:
   client:
@@ -12,12 +22,11 @@ eureka:
 spring:
   thymeleaf:
     cache: false             # Allow Thymeleaf templates to be reloaded at runtime
-    prefix: classpath:/deneb-service/templates/    # Trailing / mandatory
-                             # Template location for this application only
+    prefix: classpath:/templates/    # Trailing / mandatory      # Template location for this application only
 
 # Map the error path to error template (for Thymeleaf)
 error:
-  path=/error
+  path: /templates/error
 
 
 

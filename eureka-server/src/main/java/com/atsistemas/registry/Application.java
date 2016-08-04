@@ -10,9 +10,6 @@ public class Application {
 
 	/**
 	 * Run the application using Spring Boot and an embedded servlet engine.
-	 * 
-	 * @param args
-	 *            Program arguments - ignored.
 	 */
 	public static void main(String[] args) {
 

@@ -13,8 +13,8 @@ logging:
     
     
 spring:
-  profiles:
-    active: native
+#  profiles:
+#    active: native
 
   application:
     name: configserver  # Service registers under this name
@@ -22,7 +22,7 @@ spring:
     config:
       server:
         git:
-          uri: ${HOME}/cygnus/config
-          # basedir: target/config
-          # uri: file:///${CYGNUS_CONFIG_PATH}
+          uri: https://github.com/atSistemas/cygnus-config
+        
+#         uri: file:///${HOME}/cygnus-config
           

@@ -22,7 +22,6 @@ spring:
     config:
       server:
         git:
-          uri: ${HOME}/cygnus/config
+          uri: file:///${HOME}/cygnus-config
           # basedir: target/config
-          # uri: file:///${CYGNUS_CONFIG_PATH}
           

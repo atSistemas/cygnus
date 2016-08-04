@@ -10,8 +10,6 @@ public class Application {
 	
 	public static void main(String[] args) {
 
-		System.setProperty("spring.cloud.bootstrap.name", "deneb-service/bootstrap");
-		System.setProperty("spring.config.name", "deneb-service/default-config");
 		SpringApplication.run(Application.class, args);
 	}
 	

@@ -21,11 +21,6 @@ import io.swagger.annotations.ApiResponses;
 public class SadrController {
 
 	private Logger logger = LoggerFactory.getLogger(this.getClass());
-	
-	@RequestMapping("sadr/")
-	public String home(){
-		return "index";
-	}
 
 	@RequestMapping(method=RequestMethod.POST, value="sadr/ping")
 	@ApiOperation(value = "ping", nickname = "ping", response = PingResponse.class)

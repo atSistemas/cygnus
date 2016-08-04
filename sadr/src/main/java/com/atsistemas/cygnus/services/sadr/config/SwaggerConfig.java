@@ -48,8 +48,8 @@ class SwaggerConfig {
                 .description("Gamma Cygni")
                 .version("0.1-SNAPSHOT")
                 .termsOfServiceUrl("https://es.wikipedia.org/wiki/Sadr")
-                .license("Apache License Version 2.0")
-                .licenseUrl("https://github.com/IBM-Bluemix/news-aggregator/blob/master/LICENSE")
+                .license("Open source licensing")
+                .licenseUrl("https://help.github.com/articles/open-source-licensing/")
                 .build();
     }
 }

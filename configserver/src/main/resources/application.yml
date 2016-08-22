@@ -1,8 +1,5 @@
 server:
   port: 8888
-
-management:
-  context-path: /admin
   
 logging:
   file: logs/${spring.application.name}.log

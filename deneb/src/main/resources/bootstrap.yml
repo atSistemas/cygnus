@@ -3,6 +3,6 @@ spring:
     name: deneb-service
   cloud:
     config:
-      failFast: false
+      failFast: true
       uri: http://config-server:8888
       

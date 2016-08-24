@@ -1,9 +1,8 @@
+#Configuration for failfast=false
+
 # HTTP Server
 server:
   port: 3333   # HTTP port
-  
-management:
-  context-path: /admin
   
 logging:
   file: logs/${spring.application.name}.log

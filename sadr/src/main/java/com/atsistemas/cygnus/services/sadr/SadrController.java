@@ -18,11 +18,12 @@ import io.swagger.annotations.ApiResponses;
 
 @Api
 @RestController
+@RequestMapping("sadr/")
 public class SadrController {
 
 	private Logger logger = LoggerFactory.getLogger(this.getClass());
 
-	@RequestMapping(method=RequestMethod.POST, value="sadr/ping")
+	@RequestMapping(method = RequestMethod.POST, value = "ping/")
 	@ApiOperation(value = "ping", nickname = "ping", response = PingResponse.class)
 	@ApiResponses(value = { @ApiResponse(code = 200, message = "Success", response = String.class),
 			@ApiResponse(code = 201, message = "Created"), @ApiResponse(code = 400, message = "Bad Request"),

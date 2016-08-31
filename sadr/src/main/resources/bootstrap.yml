@@ -3,6 +3,6 @@ spring:
     name: sadr-service
   cloud:
     config:
-      failFast: true
+      failFast: false
       uri: http://config-server:8888
       

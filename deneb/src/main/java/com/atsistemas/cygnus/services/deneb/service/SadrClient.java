@@ -15,7 +15,7 @@ public class SadrClient {
 
 	private static Logger logger = LoggerFactory.getLogger(SadrClient.class);
 	
-	public static final String SADR_URL = "http://sadr-service/sadr/ping";
+	public static final String SADR_URL = "http://SADR-SERVICE/sadr/ping/";
 	
 	@Autowired
 	private RestTemplate restTemplate;
@@ -23,7 +23,7 @@ public class SadrClient {
 	@HystrixCommand(fallbackMethod="retrieveFallbackPingSadr")
 	public PingResponse pingSadr(PingRequest pingRequest){
 		
-		logger.debug("--> ping received - id: {} - content: {}", pingRequest.getId(), pingRequest.getMessage());
+		logger.debug("--> pingSadr received - id: {} - content: {}", pingRequest.getId(), pingRequest.getMessage());
 
 		return restTemplate.postForObject(SADR_URL, pingRequest, PingResponse.class);
 	}

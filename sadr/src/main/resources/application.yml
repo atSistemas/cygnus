@@ -2,7 +2,7 @@
 
 # HTTP Server
 server:
-  port: 3333   # HTTP port
+  port: 0   # HTTP port
   
 logging:
   file: logs/${spring.application.name}.log

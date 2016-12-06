@@ -20,6 +20,7 @@ import io.swagger.annotations.ApiResponses;
 
 @Api
 @RestController
+@RequestMapping("deneb/")
 public class DenebController {
 
 	private static Logger logger = LoggerFactory.getLogger(DenebController.class);
@@ -28,7 +29,7 @@ public class DenebController {
 	private SadrClient sadrClient;
 
     
-    @RequestMapping(method=RequestMethod.POST, value="deneb/ping")
+    @RequestMapping(method=RequestMethod.POST, value="ping")
     @ApiOperation(value = "ping", nickname = "ping", response = PingResponse.class)
 	@ApiResponses(value = { 
 			@ApiResponse(code = 200, message = "Success", response = String.class),
@@ -48,7 +49,7 @@ public class DenebController {
     	return new PingResponse("Hello from Deneb - " + request.getId() + " - " + request.getMessage());
     }
     
-    @RequestMapping(method=RequestMethod.POST, value="deneb/pingSadr")
+    @RequestMapping(method=RequestMethod.POST, value="pingSadr")
     @ApiOperation(value = "pingSadr", nickname = "pingSadr",response = PingResponse.class)
     @ApiResponses(value = { 
 			@ApiResponse(code = 200, message = "Success", response = String.class),
@@ -61,10 +62,8 @@ public class DenebController {
 			})
     public PingResponse pingSadr(@ApiParam(value = "request", required = true) @RequestBody(required=true) PingRequest request) {
     	
-    	logger.debug("--> ping Sadr");
-    	logger.debug("--> id: {}", request.getId());
-    	logger.debug("--> content: {}", request.getMessage());
-    	
+    	logger.debug("--> ping received - id: {} - content: {}", request.getId(), request.getMessage());
+
     	return sadrClient.pingSadr(request);
     }
 

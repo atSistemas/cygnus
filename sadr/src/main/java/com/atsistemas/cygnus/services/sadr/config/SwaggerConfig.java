@@ -24,7 +24,7 @@ class SwaggerConfig {
      * @return Swagger Docket
      */
     @Bean
-    public Docket denebApi() {
+    public Docket sadrApi() {
         return new Docket(DocumentationType.SWAGGER_2)
                 .groupName("cygnus")
                 .apiInfo(apiInfo())

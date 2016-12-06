@@ -21,4 +21,9 @@ public class PingResponse {
     public String getResponseMessage() {
         return responseMessage;
     }
+    
+    @Override
+	public String toString() {
+		return " message: " + responseMessage;
+	}
 }

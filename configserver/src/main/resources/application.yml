@@ -1,5 +1,5 @@
 server:
-  port: 8888
+  port: ${PORT:8888}
   
 logging:
   file: logs/${spring.application.name}.log

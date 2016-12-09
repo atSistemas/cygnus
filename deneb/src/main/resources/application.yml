@@ -2,7 +2,7 @@
 
 # HTTP Server
 server:
-  port: 2222   # HTTP port
+  port: ${PORT:2222}   # HTTP port
   
 logging:
   file: logs/${spring.application.name}.log

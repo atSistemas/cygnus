@@ -20,6 +20,5 @@ spring:
       server:
         git:
           uri: https://github.com/atSistemas/cygnus-config
-        
 #         uri: file:///${HOME}/cygnus-config
-          
+#         uri: file:///D:/development/cygnus-config

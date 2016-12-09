@@ -11,15 +11,10 @@ public class RuntimeUtil implements ApplicationListener<EmbeddedServletContainer
 	
 	@Override
 	public void onApplicationEvent(EmbeddedServletContainerInitializedEvent event) {
-		
 		port = event.getEmbeddedServletContainer().getPort();
 	}
 	
 	public static int getPort(){
-		
 		return port;
 	}
-	
-	
-	
 }

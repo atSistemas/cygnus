@@ -12,6 +12,7 @@
 	<groupId>com.atsistemas.cygnus</groupId>
 	<artifactId>sadr</artifactId>
 	<version>0.1-SNAPSHOT</version>
+	<name>sadr</name>
 
 	<build>
 		<plugins>

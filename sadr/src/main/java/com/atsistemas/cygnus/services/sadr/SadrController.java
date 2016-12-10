@@ -41,5 +41,4 @@ public class SadrController {
 
 		return new PingResponse("Hello from Sadr - " + pingRequest.getId() + " - " + pingRequest.getMessage() + " - port: "+ RuntimeUtil.getPort());
 	}
-	
 }

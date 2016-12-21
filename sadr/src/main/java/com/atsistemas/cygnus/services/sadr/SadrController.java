@@ -37,8 +37,6 @@ public class SadrController {
 			@ApiParam(value = "request", required = true) @RequestBody(required = true) PingRequest pingRequest) {
 
 		logger.debug("--> ping received - id: {} - message: {}", pingRequest.getId(), pingRequest.getMessage());
-		logger.debug("--> RequestURL: {}", request.getRequestURL());
-
 		return new PingResponse("Hello from Sadr on port: " + RuntimeUtil.getPort());
 	}
 }

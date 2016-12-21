@@ -36,9 +36,9 @@ public class SadrController {
 	public PingResponse ping(HttpServletRequest request,
 			@ApiParam(value = "request", required = true) @RequestBody(required = true) PingRequest pingRequest) {
 
-		logger.debug("--> ping received: {}", pingRequest.toString());
+		logger.debug("--> ping received - id: {} - message: {}", pingRequest.getId(), pingRequest.getMessage());
 		logger.debug("--> RequestURL: {}", request.getRequestURL());
 
-		return new PingResponse("Hello from Sadr - " + pingRequest.getId() + " - " + pingRequest.getMessage() + " - port: "+ RuntimeUtil.getPort());
+		return new PingResponse("Hello from Sadr on port: " + RuntimeUtil.getPort());
 	}
 }

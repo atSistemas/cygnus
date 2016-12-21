@@ -42,11 +42,8 @@ public class DenebController {
 			})
     public PingResponse ping(@ApiParam(value = "request", required = true) @RequestBody(required=true) PingRequest request) {
     	
-    	logger.debug("--> ping received");
-    	logger.debug("--> id: {}", request.getId());
-    	logger.debug("--> content: {}", request.getMessage());
-    	
-    	return new PingResponse("Hello from Deneb - " + request.getId() + " - " + request.getMessage());
+    	logger.debug("--> ping received - id: {} - message: {}", request.getId(), request.getMessage());
+    	return new PingResponse("Hello from Deneb");
     }
     
     @RequestMapping(method=RequestMethod.POST, value="pingSadr")
@@ -62,12 +59,7 @@ public class DenebController {
 			})
     public PingResponse pingSadr(@ApiParam(value = "request", required = true) @RequestBody(required=true) PingRequest request) {
     	
-    	logger.debug("--> ping received - id: {} - content: {}", request.getId(), request.getMessage());
-
+    	logger.debug("--> pingSadr received - id: {} - message: {}", request.getId(), request.getMessage());
     	return sadrClient.pingSadr(request);
     }
-
-
-    
-    
 }

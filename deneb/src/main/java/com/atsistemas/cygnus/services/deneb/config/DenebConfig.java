@@ -12,14 +12,12 @@ class DenebConfig {
 
 	@Bean 
 	SadrClient sadrClient(){
-		
 		return new SadrClient();
 	}
 	
 	@Bean
 	@LoadBalanced
 	RestTemplate restTemplate(){
-		
 		return new RestTemplate();
 	}
 	

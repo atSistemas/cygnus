@@ -7,18 +7,21 @@ logging:
     com.netflix.discovery: 'OFF'
     org.springframework.cloud: 'DEBUG'
     com.atsistemas: 'DEBUG'
-    
-    
+        
 spring:
-#  profiles:
-#    active: native
-
   application:
     name: configserver  # Service registers under this name
+#  profiles:
+#    active: native
+#  cloud:
+#    config:
+#      server:
+#        native:
+#          searchLocations: file:///D:/development/cygnus-config
+    
   cloud:
     config:
       server:
         git:
           uri: https://github.com/atSistemas/cygnus-config
 #         uri: file:///${HOME}/cygnus-config
-#         uri: file:///D:/development/cygnus-config

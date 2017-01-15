@@ -1,0 +1,29 @@
+version: '2'
+services:
+  configserver:
+    build: ../configserver
+    container_name: config-server
+    ports:
+      - "8888:8888"
+    environment:
+      - SPRING_PROFILES_ACTIVE=native
+    links:
+      - rabbitmq
+    depends_on:
+      - rabbitmq
+    volumes:
+      - D:/development/cygnus-config:/cygnus-config
+
+  rabbitmq:
+    image: "rabbitmq"
+    container_name: rabbitmq
+
+  eureka:
+    build: ../eureka-server
+    container_name: eureka
+    ports:
+      - "1111:1111"
+    links:
+      - configserver
+    depends_on:
+      - configserver

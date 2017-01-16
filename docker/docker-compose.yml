@@ -1,12 +1,13 @@
 version: '2'
 services:
-  configserver:
-    build: ../configserver
+  config-server:
+    build: ../config-server
     container_name: config-server
     ports:
       - "8888:8888"
     environment:
       - SPRING_PROFILES_ACTIVE=native
+      - CONFIG_REPO=file:/cygnus-config
     links:
       - rabbitmq
     depends_on:
@@ -17,13 +18,32 @@ services:
   rabbitmq:
     image: "rabbitmq"
     container_name: rabbitmq
+    ports:
+      - "15672:15672"
 
-  eureka:
+  eureka-server:
     build: ../eureka-server
-    container_name: eureka
+    container_name: eureka-server
     ports:
       - "1111:1111"
+    environment:
+      - CONFIG_SERVER_ENDPOINT=${CONFIG_SERVER_ENDPOINT}
     links:
-      - configserver
+      - config-server
     depends_on:
-      - configserver
+      - config-server
+  
+#  deneb:
+#    build: ../deneb
+#    container_name: deneb
+#    ports:
+#      - "2222:2222"
+#    environment:
+#      - EUREKA_ENDPOINT=${EUREKA_ENDPOINT}
+#    links:
+#      - config-server
+#      - eureka-server
+#      - rabbitmq
+#    depends_on:
+#      - config-server
+#      - eureka-server

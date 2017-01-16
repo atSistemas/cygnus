@@ -1,0 +1,55 @@
+server:
+  port: ${PORT:8888}
+
+logging:
+  file: logs/${spring.application.name}.log
+  level:
+    com.netflix.discovery: 'OFF'
+    org.springframework.cloud: 'DEBUG'
+    com.atsistemas: 'DEBUG'
+    
+spring:
+  application:
+    name: config-server  # Service registers under this name
+  profiles:
+    active: ${SPRING_PROFILES_ACTIVE}
+  rabbitmq:
+    host: rabbitmq
+    port: 5672
+    username: guest
+    password: guest
+    
+---    
+spring:
+  profiles: github
+  cloud:
+    config:
+      server:
+        git:
+          uri: https://github.com/atSistemas/cygnus-config
+---
+spring:
+  profiles: docker-git
+  cloud:
+    config:
+      server:
+        git:
+          uri: file:/cygnus-config
+---
+spring:
+  profiles: native
+  cloud:
+    config:
+      server:
+        native:
+#          searchLocations: file:///D:/development/cygnus-config
+          searchLocations: ${CONFIG_REPO}
+          failOnError : true
+---
+spring:
+  profiles: local-git
+  cloud:
+    config:
+      server:
+        git:
+         uri: file:///D:/development/cygnus-config

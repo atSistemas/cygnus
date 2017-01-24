@@ -5,4 +5,6 @@ spring:
     config:
       failFast: true
       uri: ${CONFIG_SERVER_ENDPOINT}
-      
+      retry:
+        initialInterval: ${CONFIG_RETRY_INITIAL_INTERVAL}
+        

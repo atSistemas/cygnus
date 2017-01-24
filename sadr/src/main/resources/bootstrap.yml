@@ -1,8 +1,8 @@
 spring:
   application:
-    name: sadr-service
+    name: sadr
   cloud:
     config:
       failFast: true
-      uri: http://config-server:8888
+      uri: ${CONFIG_SERVER_ENDPOINT}
       

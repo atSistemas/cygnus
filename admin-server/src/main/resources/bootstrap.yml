@@ -4,5 +4,7 @@ spring:
   cloud:
     config:
       failFast: true
-      uri: http://config-server:8888
+      uri: ${CONFIG_SERVER_ENDPOINT}
+      retry:
+        initialInterval: ${CONFIG_RETRY_INITIAL_INTERVAL}
       

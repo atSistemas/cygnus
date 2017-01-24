@@ -4,12 +4,11 @@ services:
     build: ../config-server
     container_name: config-server
     ports:
-      - "8888:8888"
+      - "${CONFIG_SERVER_PORT}:${CONFIG_SERVER_PORT}"
     environment:
+      - CONFIG_SERVER_PORT=${CONFIG_SERVER_PORT}
       - SPRING_PROFILES_ACTIVE=native
       - CONFIG_REPO=file:/cygnus-config
-    links:
-      - rabbitmq
     depends_on:
       - rabbitmq
     volumes:
@@ -27,23 +26,37 @@ services:
     ports:
       - "1111:1111"
     environment:
+      - EUREKA_SERVER_PORT=${EUREKA_SERVER_PORT}
       - CONFIG_SERVER_ENDPOINT=${CONFIG_SERVER_ENDPOINT}
-    links:
-      - config-server
+      - CONFIG_RETRY_INITIAL_INTERVAL=${CONFIG_RETRY_INITIAL_INTERVAL}
     depends_on:
       - config-server
   
+#  admin-server:
+#    build: ../admin-server
+#    container_name: admin-server
+#    ports:
+#      - "9999:9999"
+#    environment:
+#      - ADMIN_SERVER_PORT=${ADMIN_SERVER_PORT}
+#      - CONFIG_SERVER_ENDPOINT=${CONFIG_SERVER_ENDPOINT}
+#      - CONFIG_RETRY_INITIAL_INTERVAL=${CONFIG_RETRY_INITIAL_INTERVAL}
+#      - EUREKA_ENDPOINT=${EUREKA_ENDPOINT}
+#    depends_on:
+#      - config-server
+#      - eureka-server
+#  
 #  deneb:
 #    build: ../deneb
 #    container_name: deneb
 #    ports:
 #      - "2222:2222"
 #    environment:
+#      - CONFIG_SERVER_ENDPOINT=${CONFIG_SERVER_ENDPOINT}
 #      - EUREKA_ENDPOINT=${EUREKA_ENDPOINT}
-#    links:
-#      - config-server
-#      - eureka-server
-#      - rabbitmq
 #    depends_on:
 #      - config-server
 #      - eureka-server
+#      - rabbitmq
+#      
+  

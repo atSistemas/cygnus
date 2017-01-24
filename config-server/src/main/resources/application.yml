@@ -1,5 +1,5 @@
 server:
-  port: ${PORT:8888}
+  port: ${CONFIG_SERVER_PORT:8888}
 
 logging:
   file: logs/${spring.application.name}.log
@@ -44,7 +44,7 @@ spring:
         native:
 #          searchLocations: file:///D:/development/cygnus-config
           searchLocations: ${CONFIG_REPO}
-          failOnError : true
+          failOnError : false
 ---
 spring:
   profiles: local-git
@@ -52,4 +52,4 @@ spring:
     config:
       server:
         git:
-         uri: file:///D:/development/cygnus-config
+         uri: ${CONFIG_REPO}

@@ -8,12 +8,12 @@ import org.aspectj.lang.annotation.Around;
 import org.aspectj.lang.annotation.Aspect;
 import org.springframework.stereotype.Component;
 
-@Aspect
-@Component
+//@Aspect
+//@Component
 public class TestAspect {
 
 	@SuppressWarnings("unchecked")
-	@Around("execution(* org.springframework.cloud.config.monitor.PropertyPathEndpoint.notifyByPath(..))")
+//	@Around("execution(* org.springframework.cloud.config.monitor.PropertyPathEndpoint.notifyByPath(..))")
 	public Object testAround(ProceedingJoinPoint  proceedingJoinPoint) throws Throwable {
 
 		System.out.println("--> notifyByPath interception - " + proceedingJoinPoint.getSignature().getName());

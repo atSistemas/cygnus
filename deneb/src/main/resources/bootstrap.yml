@@ -1,8 +1,8 @@
 spring:
   application:
-    name: deneb-service
+    name: deneb
   cloud:
     config:
       failFast: true
-      uri: http://config-server:8888
+      uri: ${CONFIG_SERVER_ENDPOINT}
       

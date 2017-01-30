@@ -9,9 +9,9 @@
 	<url>http://maven.apache.org</url>
 	<modules>
 		<module>cygnus-arq</module>
-		<module>configserver</module>
+		<module>config-server</module>
 		<module>eureka-server</module>
-		<module>adminServer</module>
+		<module>admin-server</module>
 		<module>cygnus-model</module>
 		<module>deneb</module>
 		<module>sadr</module>

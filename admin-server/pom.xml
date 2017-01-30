@@ -10,7 +10,7 @@
 	</parent>
 
 	<groupId>com.atsistemas.admin</groupId>
-	<artifactId>adminServer</artifactId>
+	<artifactId>admin-server</artifactId>
 	<version>0.1-SNAPSHOT</version>
 	<name>adminServer</name>
 

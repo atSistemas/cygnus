@@ -1,8 +1,0 @@
-spring:
-  application:
-    name: admin-server
-  cloud:
-    config:
-      failFast: true
-      uri: http://config-server:8888
-      

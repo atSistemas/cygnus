@@ -2,14 +2,13 @@
 
 # HTTP Server
 server:
-  port: ${PORT:2222}   # HTTP port
+  port: ${PORT:9000}   # HTTP port
   
 logging:
   file: logs/${spring.application.name}.log
   level:
     com.netflix.discovery: 'OFF'
     org.springframework.cloud: 'DEBUG'
-    org.springframework.web: 'DEBUG'
     com.atsistemas: 'DEBUG'
 
 # Discovery Server Access

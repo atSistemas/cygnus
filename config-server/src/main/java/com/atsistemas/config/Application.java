@@ -17,8 +17,8 @@ public class Application {
 		SpringApplication.run(Application.class, args);
 	}
 	
-	@Bean
-	TestAspect testAspect(){
-		return new TestAspect();
-	}
+//	@Bean
+//	TestAspect testAspect(){
+//		return new TestAspect();
+//	}
 }

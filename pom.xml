@@ -11,6 +11,7 @@
     	<module>config-server</module>
 		<module>eureka-server</module>
 		<module>admin-server</module>
+		<module>hystrix-dashboard</module>
 		<module>cygnus-model</module>
 		<module>deneb</module>
 		<module>sadr</module>

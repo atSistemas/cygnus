@@ -1,0 +1,8 @@
+spring:
+  application:
+    name: hystrix-dashboard
+  cloud:
+    config:
+      failFast: true
+      uri: ${CONFIG_SERVER_ENDPOINT}
+      

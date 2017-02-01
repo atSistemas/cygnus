@@ -12,7 +12,7 @@
 	<groupId>com.atsistemas.admin</groupId>
 	<artifactId>admin-server</artifactId>
 	<version>0.1-SNAPSHOT</version>
-	<name>adminServer</name>
+	<name>admin-server</name>
 
 	<properties>
 		<spring.boot.admin.version>1.4.4</spring.boot.admin.version>

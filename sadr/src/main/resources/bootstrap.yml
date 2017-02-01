@@ -1,6 +1,6 @@
 spring:
   application:
-    name: sadr-service
+    name: sadr
   cloud:
     config:
       failFast: true

@@ -1,6 +1,6 @@
 spring:
   application:
-    name: deneb-service
+    name: deneb
   cloud:
     config:
       failFast: true

@@ -4,5 +4,4 @@ spring:
   cloud:
     config:
       failFast: true
-      uri: http://config-server:8888
-      
+      uri: http://localhost:8888

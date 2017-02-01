@@ -3,10 +3,9 @@ server:
   port: ${PORT:9999}   # HTTP port
   
 # Discovery Server Access
-
 eureka:
   client:
     serviceUrl:
-      defaultZone: http://discovery-server:1111/eureka/
+      defaultZone: http://localhost:1111/eureka/
   instance:
      preferIpAddress: true

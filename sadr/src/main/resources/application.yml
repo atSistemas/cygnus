@@ -16,4 +16,16 @@ logging:
 eureka:
   client:
     serviceUrl:
-      defaultZone: ${EUREKA_ENDPOINT}
+      defaultZone: http://localhost:1111/eureka/
+
+cygnus:
+  deneb:
+    name: deneb
+    pingUrl: http://${cygnus.deneb.name}/ping/
+
+spring:
+   rabbitmq:
+     host: rabbitmq
+     port: 5672
+     username: guest
+     password: guest

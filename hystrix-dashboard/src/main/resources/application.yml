@@ -15,4 +15,4 @@ logging:
 eureka:
   client:
     serviceUrl:
-      defaultZone: ${EUREKA_ENDPOINT}
+      defaultZone: http://localhost:1111/eureka/

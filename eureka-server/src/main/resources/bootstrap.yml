@@ -3,7 +3,7 @@ spring:
     name: eureka-server
   cloud:
     config:
-      failFast: true
+      failFast: false
       uri: ${CONFIG_SERVER_ENDPOINT}
       retry:
         initialInterval: ${CONFIG_RETRY_INITIAL_INTERVAL}

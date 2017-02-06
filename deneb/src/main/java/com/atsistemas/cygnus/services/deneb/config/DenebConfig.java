@@ -22,5 +22,4 @@ class DenebConfig {
 	RestTemplate restTemplate(){
 		return new RestTemplate();
 	}
-	
 }

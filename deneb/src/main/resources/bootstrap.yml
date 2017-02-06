@@ -3,6 +3,6 @@ spring:
     name: deneb
   cloud:
     config:
-      failFast: true
-      uri: ${CONFIG_SERVER_ENDPOINT}
+      failFast: false
+#      uri: ${CONFIG_SERVER_ENDPOINT}
       

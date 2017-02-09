@@ -14,8 +14,8 @@
 		<maven.compiler.source>1.8</maven.compiler.source>
 		<maven.compiler.target>1.8</maven.compiler.target>
 
-		<spring.boot.version>1.4.2.RELEASE</spring.boot.version>
-		<spring.cloud.version>Camden.SR4</spring.cloud.version>
+		<spring.cloud.version>Camden.SR5</spring.cloud.version>
+		<spring.boot.version>1.5.1.RELEASE</spring.boot.version>
 		<swagger.version>2.6.1</swagger.version>
 		<docker.maven.plugin.version>0.4.13</docker.maven.plugin.version>
 	</properties>

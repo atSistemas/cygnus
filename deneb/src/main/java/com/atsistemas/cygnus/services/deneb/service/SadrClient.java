@@ -81,7 +81,4 @@ public class SadrClient {
 		this.pingUrl = pingUrl;
 	}
 
-	public void setPingDelay(int pingDelay) {
-		this.pingDelay = pingDelay;
-	}
 }

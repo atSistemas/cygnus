@@ -1,0 +1,21 @@
+server:
+  port: ${ZUUL_PORT:8080}
+
+# App info
+info:
+  app:
+    name: @project.artifactId@
+    description: @project.description@
+
+logging:
+  file: logs/${spring.application.name}.log
+  level:
+    com.netflix.discovery: 'OFF'
+    org.springframework.cloud: 'DEBUG'
+    com.atsistemas: 'DEBUG'
+ 
+# Discovery Server Access
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:1111/eureka/

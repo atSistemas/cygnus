@@ -12,6 +12,7 @@
 		<module>eureka-server</module>
 		<module>admin-server</module>
 		<module>hystrix-dashboard</module>
+		<module>zuul-proxy</module>
 		<module>cygnus-model</module>
 		<module>deneb</module>
 		<module>sadr</module>

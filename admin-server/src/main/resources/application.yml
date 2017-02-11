@@ -1,12 +1,17 @@
 # HTTP Server
 server:
-  port: ${PORT:9999}   # HTTP port
-  
-# Discovery Server Access
+  port: ${PORT:9999}
 
+# App info
+info:
+  app:
+    name: @project.artifactId@
+    description: @project.description@
+      
+# Discovery Server Access
 eureka:
   client:
     serviceUrl:
-      defaultZone: ${EUREKA_ENDPOINT}
+      defaultZone: http://localhost:1111/eureka/
   instance:
      preferIpAddress: true

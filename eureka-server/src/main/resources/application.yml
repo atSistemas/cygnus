@@ -2,8 +2,14 @@
 
 # HTTP Server
 server:
-  port: ${PORT:1111}   # HTTP port
-  
+  port: ${PORT:1111}
+
+# App info
+info:
+  app:
+    name: @project.artifactId@
+    description: @project.description@
+
 logging:
   file: logs/${spring.application.name}.log
   level:

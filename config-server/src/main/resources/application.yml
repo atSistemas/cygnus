@@ -1,6 +1,12 @@
 server:
   port: ${CONFIG_SERVER_PORT:8888}
 
+# App info
+info:
+  app:
+    name: @project.artifactId@
+    description: @project.description@
+
 logging:
   file: logs/${spring.application.name}.log
   level:
@@ -42,8 +48,7 @@ spring:
     config:
       server:
         native:
-#          searchLocations: file:///D:/development/cygnus-config
-          searchLocations: ${CONFIG_REPO}
+          searchLocations: file:///D:/development/cygnus-config
           failOnError : false
 ---
 spring:

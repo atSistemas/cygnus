@@ -16,7 +16,7 @@ import com.atsistemas.cygnus.model.PingResponse;
 import com.netflix.hystrix.contrib.javanica.annotation.HystrixCommand;
 import com.netflix.hystrix.contrib.javanica.command.AsyncResult;
 
-//import rx.Observable;
+import rx.Observable;
 
 @ConfigurationProperties(prefix="cygnus.sadr")
 public class SadrClient {
@@ -53,24 +53,23 @@ public class SadrClient {
 		};
 	}
 	
-	@Async
-	@HystrixCommand(fallbackMethod="retrieveFallbackPingSadr")
-	public Observable<PingResponse> pingSadrRx(PingRequest pingRequest){
-		
-		logger.debug("--> pingSadrAsync - id: {} - content: {}", pingRequest.getId(), pingRequest.getMessage());
-		logger.debug("--> sadr endpoint: {}",pingUrl);
-		
-		return new ObservableResult<PingResponse>(){
-			
-			public PingResponse invoke() {
-				return restTemplate.postForObject(pingUrl, pingRequest, PingResponse.class);
-			    }
-			
-		};
-			
-	
-
-	}
+//	@Async
+//	@HystrixCommand(fallbackMethod="retrieveFallbackPingSadr")
+//	public Observable<PingResponse> pingSadrRx(PingRequest pingRequest){
+//		
+//		logger.debug("--> pingSadrAsync - id: {} - content: {}", pingRequest.getId(), pingRequest.getMessage());
+//		logger.debug("--> sadr endpoint: {}",pingUrl);
+//		
+//		
+//		return new ObservableResult<PingResponse>(){
+//			
+//			public PingResponse invoke() {
+//				return restTemplate.postForObject(pingUrl, pingRequest, PingResponse.class);
+//			    }
+//			
+//		};
+//
+//	}
 	
 	public PingResponse retrieveFallbackPingSadr(PingRequest pingRequest){
 		
@@ -81,7 +80,4 @@ public class SadrClient {
 		this.pingUrl = pingUrl;
 	}
 
-	public void setPingDelay(int pingDelay) {
-		this.pingDelay = pingDelay;
-	}
 }

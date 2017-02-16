@@ -4,12 +4,6 @@
 server:
   port: ${PORT:2222}
 
-# App info
-info:
-  app:
-    name: @project.artifactId@
-    description: @project.description@
-
 logging:
   file: logs/${spring.application.name}.log
   level:

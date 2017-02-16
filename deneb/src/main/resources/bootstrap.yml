@@ -1,8 +1,23 @@
 spring:
   application:
     name: deneb
+  profiles:
+    active: ${SPRING_PROFILES_ACTIVE}
+
+---    
+spring:
+  profiles: dev
   cloud:
     config:
       failFast: false
-#      uri: ${CONFIG_SERVER_ENDPOINT}
-      
+      uri: http://localhost:8888
+
+---    
+spring:
+  profiles: docker
+  cloud:
+    config:
+      failFast: true
+      uri: ${CONFIG_SERVER_ENDPOINT}
+      retry:
+        initialInterval: ${CONFIG_RETRY_INITIAL_INTERVAL:10000}

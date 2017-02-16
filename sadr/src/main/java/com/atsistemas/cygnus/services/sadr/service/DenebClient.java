@@ -21,7 +21,7 @@ public class DenebClient {
 	private RestTemplate restTemplate;
 
 	@HystrixCommand(fallbackMethod="retrieveFallbackPingSadr")
-	public PingResponse pingdeneb(PingRequest pingRequest){
+	public PingResponse pingDeneb(PingRequest pingRequest){
 		
 		logger.debug("--> pingDeneb received - id: {} - content: {}", pingRequest.getId(), pingRequest.getMessage());
 		logger.debug("--> deneb endpoint: {}",pingUrl);

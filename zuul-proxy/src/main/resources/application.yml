@@ -1,12 +1,6 @@
 server:
   port: ${ZUUL_PORT:8080}
 
-# App info
-info:
-  app:
-    name: @project.artifactId@
-    description: @project.description@
-
 logging:
   file: logs/${spring.application.name}.log
   level:

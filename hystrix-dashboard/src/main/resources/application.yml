@@ -2,7 +2,7 @@
 
 # HTTP Server
 server:
-  port: ${PORT:9000}   # HTTP port
+  port: ${HYSTRIX_DASHBOARD_PORT:9000}
   
 logging:
   file: logs/${spring.application.name}.log

@@ -2,13 +2,7 @@
 
 # HTTP Server
 server:
-  port: ${PORT:1111}
-
-# App info
-info:
-  app:
-    name: @project.artifactId@
-    description: @project.description@
+  port: ${EUREKA_SERVER_PORT:1111}
 
 logging:
   file: logs/${spring.application.name}.log

@@ -1,12 +1,7 @@
 # HTTP Server
 server:
-  port: ${PORT:9999}
+  port: ${ADMIN_SERVER_PORT:9999}
 
-# App info
-info:
-  app:
-    name: @project.artifactId@
-    description: @project.description@
       
 # Discovery Server Access
 eureka:

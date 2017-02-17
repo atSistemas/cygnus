@@ -1,21 +1,52 @@
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
-    <modelVersion>4.0.0</modelVersion>
-    <groupId>com.atsistemas.cygnus</groupId>
-    <artifactId>cygnus-agregate</artifactId>
-    <packaging>pom</packaging>
-    <version>TRUNK</version>
-    <name>cygnus-agregate</name>
-    <url>http://maven.apache.org</url>
-    <modules>
-    	<module>cygnus-arq</module>
-    	<module>config-server</module>
-		<module>eureka-server</module>
-		<module>admin-server</module>
-		<module>hystrix-dashboard</module>
-		<module>zuul-proxy</module>
-		<module>cygnus-model</module>
-		<module>deneb</module>
-		<module>sadr</module>
-		
-    </modules>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>com.atsistemas.cygnus</groupId>
+	<artifactId>cygnus-agregate</artifactId>
+	<packaging>pom</packaging>
+	<version>TRUNK</version>
+	<name>cygnus-agregate</name>
+	<url>http://maven.apache.org</url>
+
+	<profiles>
+		<profile>
+			<id>all</id>
+			<activation>
+				<property>
+					<name>custom-profile</name>
+					<value>!true</value>
+				</property>
+			</activation>
+			<modules>
+				<module>cygnus-arq</module>
+				<module>config-server</module>
+				<module>eureka-server</module>
+				<module>admin-server</module>
+				<module>hystrix-dashboard</module>
+				<module>zuul-proxy</module>
+				<module>cygnus-model</module>
+				<module>deneb</module>
+				<module>sadr</module>
+			</modules>
+		</profile>
+		<profile>
+			<id>custom</id>
+			<activation>
+				<property>
+					<name>custom-profile</name>
+					<value>true</value>
+				</property>
+			</activation>
+			<modules>
+<!-- 				<module>config-server</module> -->
+				<module>eureka-server</module>
+				<module>admin-server</module>
+				<module>hystrix-dashboard</module>
+				<module>zuul-proxy</module>
+				<module>deneb</module>
+				<module>sadr</module>
+			</modules>
+		</profile>
+
+	</profiles>
 </project>

@@ -1,0 +1,22 @@
+version: '2'
+services:
+
+  config-server:
+    image: config-server
+    container_name: config-server
+    ports:
+      - "${CONFIG_SERVER_PORT}:${CONFIG_SERVER_PORT}"
+    environment:
+      - CONFIG_SERVER_PORT=${CONFIG_SERVER_PORT}
+      - SPRING_PROFILES_ACTIVE=${SPRING_PROFILES_ACTIVE}
+      - CONFIG_REPO=file:/cygnus-config
+    depends_on:
+      - rabbitmq
+    volumes:
+      - D:/development/cygnus-config:/cygnus-config
+
+  rabbitmq:
+    image: rabbitmq
+    container_name: rabbitmq
+#    ports:
+#      - "15672:15672"

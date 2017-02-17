@@ -8,7 +8,7 @@ services:
       - "${CONFIG_SERVER_PORT}:${CONFIG_SERVER_PORT}"
     environment:
       - CONFIG_SERVER_PORT=${CONFIG_SERVER_PORT}
-      - SPRING_PROFILES_ACTIVE=native
+      - SPRING_PROFILES_ACTIVE=${SPRING_PROFILES_ACTIVE}
       - CONFIG_REPO=file:/cygnus-config
     depends_on:
       - rabbitmq
@@ -27,6 +27,7 @@ services:
     ports:
       - "${EUREKA_SERVER_PORT}:${EUREKA_SERVER_PORT}"
     environment:
+      - SPRING_PROFILES_ACTIVE=${SPRING_PROFILES_ACTIVE}
       - EUREKA_SERVER_PORT=${EUREKA_SERVER_PORT}
       - CONFIG_SERVER_ENDPOINT=${CONFIG_SERVER_ENDPOINT}
       - CONFIG_RETRY_INITIAL_INTERVAL=${CONFIG_RETRY_INITIAL_INTERVAL}
@@ -39,6 +40,7 @@ services:
     ports:
       - "${ADMIN_SERVER_PORT}:${ADMIN_SERVER_PORT}"
     environment:
+      - SPRING_PROFILES_ACTIVE=${SPRING_PROFILES_ACTIVE}
       - ADMIN_SERVER_PORT=${ADMIN_SERVER_PORT}
       - CONFIG_SERVER_ENDPOINT=${CONFIG_SERVER_ENDPOINT}
       - CONFIG_RETRY_INITIAL_INTERVAL=${CONFIG_RETRY_INITIAL_INTERVAL}
@@ -53,7 +55,10 @@ services:
     ports:
       - "${HYSTRIX_DASHBOARD_PORT}:${HYSTRIX_DASHBOARD_PORT}"
     environment:
+      - SPRING_PROFILES_ACTIVE=${SPRING_PROFILES_ACTIVE}
+      - HYSTRIX_DASHBOARD_PORT=${HYSTRIX_DASHBOARD_PORT}
       - CONFIG_SERVER_ENDPOINT=${CONFIG_SERVER_ENDPOINT}
+      - CONFIG_RETRY_INITIAL_INTERVAL=${CONFIG_RETRY_INITIAL_INTERVAL}
       - EUREKA_ENDPOINT=${EUREKA_ENDPOINT}
     depends_on:
       - config-server
@@ -67,7 +72,9 @@ services:
     ports:
       - "3333:3333"
     environment:
+      - SPRING_PROFILES_ACTIVE=${SPRING_PROFILES_ACTIVE}
       - CONFIG_SERVER_ENDPOINT=${CONFIG_SERVER_ENDPOINT}
+      - CONFIG_RETRY_INITIAL_INTERVAL=${CONFIG_RETRY_INITIAL_INTERVAL}
       - EUREKA_ENDPOINT=${EUREKA_ENDPOINT}
     depends_on:
       - config-server
@@ -80,14 +87,34 @@ services:
     ports:
       - "2222:2222"
     environment:
+      - SPRING_PROFILES_ACTIVE=${SPRING_PROFILES_ACTIVE}
       - CONFIG_SERVER_ENDPOINT=${CONFIG_SERVER_ENDPOINT}
+      - CONFIG_RETRY_INITIAL_INTERVAL=${CONFIG_RETRY_INITIAL_INTERVAL}
       - EUREKA_ENDPOINT=${EUREKA_ENDPOINT}
     depends_on:
       - config-server
       - eureka-server
       - rabbitmq
       - sadr
-  
+
+  zuul-proxy:
+    image: zuul-proxy
+    container_name: zuul-proxy
+    ports:
+      - "${ZUUL_PORT}:${ZUUL_PORT}"
+    environment:
+      - SPRING_PROFILES_ACTIVE=${SPRING_PROFILES_ACTIVE}
+      - ZUUL_PORT=${ZUUL_PORT}
+      - CONFIG_SERVER_ENDPOINT=${CONFIG_SERVER_ENDPOINT}
+      - CONFIG_RETRY_INITIAL_INTERVAL=${CONFIG_RETRY_INITIAL_INTERVAL}
+      - EUREKA_ENDPOINT=${EUREKA_ENDPOINT}
+    depends_on:
+      - config-server
+      - eureka-server
+      - sadr
+      - deneb
+      - admin-server
+      - hystrix-dashboard
   
       
   

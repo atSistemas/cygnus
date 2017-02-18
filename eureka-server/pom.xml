@@ -6,6 +6,7 @@
 		<groupId>com.atsistemas.cygnus</groupId>
 		<artifactId>cygnus-arq</artifactId>
 		<version>0.1-SNAPSHOT</version>
+		<relativePath>../cygnus-arq</relativePath>
 	</parent>
 
 	<groupId>com.atsistemas.registry</groupId>

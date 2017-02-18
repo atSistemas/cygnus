@@ -1,4 +1,5 @@
 version: '2'
+
 services:
 
   config-server:
@@ -13,7 +14,7 @@ services:
     depends_on:
       - rabbitmq
     volumes:
-      - D:/development/cygnus-config:/cygnus-config
+      - ${CONFIG_SERVER_REPO}:/cygnus-config
 
   rabbitmq:
     image: rabbitmq

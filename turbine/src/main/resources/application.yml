@@ -1,0 +1,12 @@
+#Configuration for failfast=false
+
+# HTTP Server
+server:
+  port: ${TURBINE_PORT:8989}
+  
+logging:
+  file: logs/${spring.application.name}.log
+  level:
+    com.netflix.discovery: 'OFF'
+    org.springframework.cloud: 'DEBUG'
+    com.atsistemas: 'DEBUG'

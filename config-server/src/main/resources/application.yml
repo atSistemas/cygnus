@@ -5,7 +5,7 @@ logging:
   file: logs/${spring.application.name}.log
   level:
     com.netflix.discovery: 'OFF'
-    org.springframework.cloud: 'INFO'
+    org.springframework.cloud: 'DEBUG'
     com.atsistemas: 'DEBUG'
     
 spring:
@@ -42,5 +42,13 @@ spring:
     config:
       server:
         native:
-          searchLocations: file:///D:/development/cygnus-config
-          failOnError : false
+          searchLocations: file:/media/dani/Data/workspaces/STS/cygnus-config
+
+---
+spring:
+  profiles: dev
+  cloud:
+    config:
+      server:
+        git:
+          uri: file:/media/dani/Data/workspaces/STS/cygnus-config

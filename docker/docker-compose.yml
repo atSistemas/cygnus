@@ -60,7 +60,23 @@ services:
       - HYSTRIX_DASHBOARD_PORT=${HYSTRIX_DASHBOARD_PORT}
       - CONFIG_SERVER_ENDPOINT=${CONFIG_SERVER_ENDPOINT}
       - CONFIG_RETRY_INITIAL_INTERVAL=${CONFIG_RETRY_INITIAL_INTERVAL}
-      - EUREKA_ENDPOINT=${EUREKA_ENDPOINT}
+    depends_on:
+      - config-server
+      - eureka-server
+      - sadr
+      - deneb
+  
+  turbine:
+    image: turbine
+    container_name: turbine
+    ports:
+      - "${TURBINE_PORT}:${TURBINE_PORT}"
+    environment:
+      - SPRING_PROFILES_ACTIVE=${SPRING_PROFILES_ACTIVE}
+      - TURBINE_PORT=${TURBINE_PORT}
+      - CONFIG_SERVER_ENDPOINT=${CONFIG_SERVER_ENDPOINT}
+      - CONFIG_RETRY_INITIAL_INTERVAL=${CONFIG_RETRY_INITIAL_INTERVAL}
+#      - EUREKA_ENDPOINT=${EUREKA_ENDPOINT}
     depends_on:
       - config-server
       - eureka-server

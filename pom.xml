@@ -2,11 +2,11 @@
 	xsi:schemaLocation="http://maven.apa
 	che.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
 	<modelVersion>4.0.0</modelVersion>
-	
+
 	<groupId>com.atsistemas.cygnus</groupId>
 	<artifactId>cygnus-agregate</artifactId>
 	<version>TRUNK</version>
-	
+
 	<packaging>pom</packaging>
 
 	<name>cygnus-agregate</name>
@@ -17,7 +17,7 @@
 			<id>all</id>
 			<activation>
 				<property>
-					<name>custom-profile</name>
+					<name>custom-modules</name>
 					<value>!true</value>
 				</property>
 			</activation>
@@ -29,6 +29,7 @@
 				<module>admin-server</module>
 				<module>hystrix-dashboard</module>
 				<module>zuul-proxy</module>
+				<module>turbine</module>
 				<module>deneb</module>
 				<module>sadr</module>
 			</modules>
@@ -37,20 +38,20 @@
 			<id>custom</id>
 			<activation>
 				<property>
-					<name>custom-profile</name>
+					<name>custom-modules</name>
 					<value>true</value>
 				</property>
 			</activation>
 			<modules>
-				<module>config-server</module>
+<!-- 				<module>config-server</module> -->
 				<module>eureka-server</module>
 				<module>admin-server</module>
 				<module>hystrix-dashboard</module>
 				<module>zuul-proxy</module>
+				<module>turbine</module>
 				<module>deneb</module>
 				<module>sadr</module>
 			</modules>
 		</profile>
-
 	</profiles>
 </project>

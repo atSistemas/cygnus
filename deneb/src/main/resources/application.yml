@@ -12,6 +12,10 @@ logging:
     org.springframework.web: 'DEBUG'
     com.atsistemas: 'DEBUG'
 
+management:
+  security:
+    enabled: false
+    
 # Discovery Server Access
 eureka:
   client:
@@ -22,11 +26,13 @@ cygnus:
   sadr:
     name: sadr
     pingUrl: http://${cygnus.sadr.name}/ping/
-    pingDelay: 1000
 
 spring:
    rabbitmq:
      host: rabbitmq
      port: 5672
      username: guest
-     password: guest
+     password: guest        
+                
+      
+     

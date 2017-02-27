@@ -12,6 +12,10 @@ logging:
     org.springframework.web: 'INFO'
     com.atsistemas: 'DEBUG'
 
+management:
+  security:
+    enabled: false
+
 # Configure this Discovery Server
 eureka:
   instance:

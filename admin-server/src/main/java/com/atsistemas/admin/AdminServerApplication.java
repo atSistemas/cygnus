@@ -12,6 +12,7 @@ import de.codecentric.boot.admin.config.EnableAdminServer;
 public class AdminServerApplication {
 
 	public static void main(String[] args) {
+		System.setProperty("spring.jackson.serialization.INDENT_OUTPUT", "true");
 		SpringApplication.run(AdminServerApplication.class, args);
 	}
 }

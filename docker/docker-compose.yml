@@ -17,10 +17,10 @@ services:
       - ${CONFIG_SERVER_REPO}:/cygnus-config
 
   rabbitmq:
-    image: rabbitmq
+    image: rabbitmq:3-management
     container_name: rabbitmq
-#    ports:
-#      - "15672:15672"
+    ports:
+      - "15672:15672"
 
   eureka-server:
     image: eureka-server

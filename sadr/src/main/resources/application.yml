@@ -3,15 +3,22 @@
 # HTTP Server
 server:
   port: ${PORT:3333}
+  
+#management:
+#  context-path: /sadr
 
 logging:
   file: logs/${spring.application.name}.log
   level:
     com.netflix.discovery: 'OFF'
-    org.springframework.cloud: 'INFO'
+    org.springframework.cloud: 'DEBUG'
     org.springframework.web: 'INFO'
     com.atsistemas: 'DEBUG'
 
+management:
+  security:
+    enabled: false
+    
 # Discovery Server Access
 eureka:
   client:
@@ -24,9 +31,11 @@ cygnus:
     pingUrl: http://${cygnus.deneb.name}/ping/
 
 spring:
-   rabbitmq:
-     host: rabbitmq
-     port: 5672
-     username: guest
-     password: guest
+  rabbitmq:
+    host: rabbitmq
+    port: 5672
+    username: guest
+    password: guest
+
+
      

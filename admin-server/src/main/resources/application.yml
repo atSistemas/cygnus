@@ -10,3 +10,7 @@ eureka:
       defaultZone: http://localhost:1111/eureka/
   instance:
      preferIpAddress: true
+     
+management:
+  security:
+    enabled: false

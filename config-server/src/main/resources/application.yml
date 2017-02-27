@@ -7,10 +7,14 @@ logging:
     com.netflix.discovery: 'OFF'
     org.springframework.cloud: 'DEBUG'
     com.atsistemas: 'DEBUG'
+
+management:
+  security:
+    enabled: false
     
 spring:
   application:
-    name: config-server  # Service registers under this name
+    name: config-server
   profiles:
     active: ${SPRING_PROFILES_ACTIVE}
   rabbitmq:
@@ -42,7 +46,7 @@ spring:
     config:
       server:
         native:
-          searchLocations: file:/media/dani/Data/workspaces/STS/cygnus-config
+          searchLocations: file:/media/dani/Data/workspaces/STS/cygnus-config/{profile}
 
 ---
 spring:
@@ -52,3 +56,5 @@ spring:
       server:
         git:
           uri: file:/media/dani/Data/workspaces/STS/cygnus-config
+          searchPaths:
+          - dev

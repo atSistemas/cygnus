@@ -20,7 +20,7 @@ public class DenebClient {
 	@Autowired
 	private RestTemplate restTemplate;
 
-	@HystrixCommand(fallbackMethod="retrieveFallbackPingSadr")
+	@HystrixCommand(fallbackMethod="retrieveFallbackPingDeneb")
 	public PingResponse pingDeneb(PingRequest pingRequest){
 		
 		logger.debug("--> pingDeneb received - id: {} - content: {}", pingRequest.getId(), pingRequest.getMessage());
@@ -28,7 +28,7 @@ public class DenebClient {
 		return restTemplate.postForObject(pingUrl, pingRequest, PingResponse.class);
 	}
 	
-	public PingResponse retrieveFallbackPingSadr(PingRequest pingRequest){
+	public PingResponse retrieveFallbackPingDeneb(PingRequest pingRequest){
 		return new PingResponse("Error pinging deneb. This is a fallback message");
 	}
 

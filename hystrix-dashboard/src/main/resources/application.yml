@@ -10,3 +10,18 @@ logging:
     com.netflix.discovery: 'OFF'
     org.springframework.cloud: 'DEBUG'
     com.atsistemas: 'DEBUG'
+
+management:
+  security:
+    enabled: false
+    
+turbine:
+  appConfig: sadr,deneb
+  clusterNameExpression: new String("default")
+  combineHostPort: true
+
+# Discovery Server Access
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:1111/eureka/

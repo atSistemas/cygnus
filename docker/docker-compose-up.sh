@@ -1,4 +1,3 @@
-
 # profile
 export SPRING_PROFILES_ACTIVE=docker
 
@@ -25,3 +24,4 @@ export HYSTRIX_DASHBOARD_PORT=9000
 export TURBINE_PORT=8989
 
 docker-compose up
+

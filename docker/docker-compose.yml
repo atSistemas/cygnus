@@ -1,4 +1,4 @@
-version: '2'
+version: '3'
 
 services:
 
@@ -76,7 +76,6 @@ services:
       - TURBINE_PORT=${TURBINE_PORT}
       - CONFIG_SERVER_ENDPOINT=${CONFIG_SERVER_ENDPOINT}
       - CONFIG_RETRY_INITIAL_INTERVAL=${CONFIG_RETRY_INITIAL_INTERVAL}
-#      - EUREKA_ENDPOINT=${EUREKA_ENDPOINT}
     depends_on:
       - config-server
       - eureka-server
@@ -96,7 +95,11 @@ services:
     depends_on:
       - config-server
       - eureka-server
-      - rabbitmq
+       - rabbitmq
+    deploy:
+      replicas: 2
+      restart_policy:
+        condition: on-failure
       
   deneb:
     image: deneb

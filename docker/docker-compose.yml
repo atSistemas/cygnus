@@ -95,7 +95,7 @@ services:
     depends_on:
       - config-server
       - eureka-server
-       - rabbitmq
+      - rabbitmq
     deploy:
       replicas: 2
       restart_policy:

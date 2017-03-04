@@ -20,4 +20,6 @@ spring:
       failFast: true
       uri: ${CONFIG_SERVER_ENDPOINT}
       retry:
-        initialInterval: ${CONFIG_RETRY_INITIAL_INTERVAL:10000}
+        multiplier: ${CONFIG_RETRY_MULTIPLIER:1.5}
+        maxInterval: ${CONFIG_RETRY_MAX_INTERVAL:20000}
+        maxAttempts: ${CONFIG_RETRY_MAX_ATTEMPTS:10}

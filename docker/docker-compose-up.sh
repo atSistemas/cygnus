@@ -3,7 +3,7 @@ export SPRING_PROFILES_ACTIVE=docker
 
 # config-server
 export CONFIG_SERVER_PORT=8888
-export CONFIG_SERVER_REPO=$HOME/workspaces/STS/cygnus-config
+export CONFIG_SERVER_REPO=$HOME/git/cygnus-config
 export CONFIG_SERVER_ENDPOINT=http://config-server:$CONFIG_SERVER_PORT
 export CONFIG_RETRY_INITIAL_INTERVAL=10000
 
@@ -24,4 +24,3 @@ export HYSTRIX_DASHBOARD_PORT=9000
 export TURBINE_PORT=8989
 
 docker-compose up
-

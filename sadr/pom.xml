@@ -27,29 +27,7 @@
                     </execution>
                 </executions>
 			</plugin>
-			<plugin>
-				<groupId>com.spotify</groupId>
-				<artifactId>docker-maven-plugin</artifactId>
-				<configuration>
-					<imageName>com.atsistemas.cygnus/sadr</imageName>
-					<imageTags>
-						<imageTag>${project.version}</imageTag>
-					</imageTags>
-					<!-- <baseImage>java:8-jre</baseImage> -->
-					<baseImage>mykro/java8-jre</baseImage>
-					<entryPoint>["java", "-jar", "/${project.build.finalName}.jar"]</entryPoint>
-					<exposes>
-						<expose>${PORT}</expose>
-					</exposes>
-					<resources>
-						<resource>
-							<targetPath>/</targetPath>
-							<directory>${project.build.directory}</directory>
-							<include>${project.build.finalName}.jar</include>
-						</resource>
-					</resources>
-				</configuration>
-			</plugin>
+			
 		</plugins>
 	</build>
 	<dependencies>

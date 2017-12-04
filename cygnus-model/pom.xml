@@ -15,10 +15,10 @@
 	<version>0.1-SNAPSHOT</version>
 
 	<dependencies>
-		<dependency>
-			<groupId>io.springfox</groupId>
-			<artifactId>springfox-swagger-ui</artifactId>
-		</dependency>
+<!-- 		<dependency> -->
+<!-- 			<groupId>io.springfox</groupId> -->
+<!-- 			<artifactId>springfox-swagger-ui</artifactId> -->
+<!-- 		</dependency> -->
 		<dependency>
 			<groupId>io.springfox</groupId>
 			<artifactId>springfox-swagger2</artifactId>

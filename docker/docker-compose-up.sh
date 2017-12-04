@@ -22,7 +22,7 @@ export ZUUL_PORT=8080
 export ADMIN_SERVER_PORT=9999
 
 # hystrix-dashboard
-export HYSTRIX_DASHBOARD_PORT=9000
+export HYSTRIX_DASHBOARD_PORT=9001
 
 # turbine
 export TURBINE_PORT=8989

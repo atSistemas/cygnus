@@ -28,6 +28,6 @@ export HYSTRIX_DASHBOARD_PORT=9000
 # turbine
 export TURBINE_PORT=8989
 
-#docker-compose up
+docker-compose up
 
-docker-compose -f docker-compose-config.yml up
+#docker-compose -f docker-compose-config.yml up

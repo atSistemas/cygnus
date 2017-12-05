@@ -28,9 +28,13 @@
 					</execution>
 				</executions>
 			</plugin>
+			
+			<plugin>
+				<artifactId>maven-resources-plugin</artifactId>
+			</plugin>
 			<plugin>
 				<groupId>com.spotify</groupId>
-				<artifactId>docker-maven-plugin</artifactId>
+				<artifactId>dockerfile-maven-plugin</artifactId>
 			</plugin>
 		</plugins>
 	</build>

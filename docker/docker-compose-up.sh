@@ -4,7 +4,7 @@ export SPRING_PROFILES_ACTIVE=docker
 # config-server
 export CONFIG_SERVER_PORT=8888
 export CONFIG_REPO=https://github.com/atSistemas/cygnus-config
-export LOCAL_CONFIG_REPO_PATH=$HOME/git/cygnus-config
+export LOCAL_CONFIG_REPO=$HOME/git/cygnus-config
 export CONFIG_SERVER_ENDPOINT=http://config-server:$CONFIG_SERVER_PORT
 
 # config retry

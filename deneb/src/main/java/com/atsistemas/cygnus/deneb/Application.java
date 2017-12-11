@@ -1,4 +1,4 @@
-package com.atsistemas.cygnus.services.deneb;
+package com.atsistemas.cygnus.deneb;
 
 import java.util.concurrent.Executor;
 

@@ -6,17 +6,9 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.client.RestTemplate;
 
-import com.atsistemas.cygnus.sadr.service.DenebClient;
-
 @Configuration
 class SadrConfig {
 
-	@Bean
-	@RefreshScope
-	DenebClient denebClient(){
-		return new DenebClient();
-	}
-	
 	@Bean
 	@LoadBalanced
 	RestTemplate restTemplate(){

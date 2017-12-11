@@ -37,11 +37,6 @@
 	</build>
 	<dependencies>
 		<dependency>
-			<groupId>com.atsistemas.cygnus</groupId>
-			<artifactId>cygnus-model</artifactId>
-			<version>0.1-SNAPSHOT</version>
-		</dependency>
-		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-undertow</artifactId>
 		</dependency>

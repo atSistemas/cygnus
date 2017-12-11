@@ -76,8 +76,8 @@
 							<configuration>
 								<inputSpec>${project.build.sourceDirectory}/../resources/${project.artifactId}-api.yaml</inputSpec>
 								<language>spring</language>
-								<modelPackage>com.atsistemas.${project.artifactId}.generated.model</modelPackage>
-								<apiPackage>com.atsistemas.${project.artifactId}.generated.api</apiPackage>
+								<modelPackage>com.atsistemas.cygnus.${project.artifactId}.generated.model</modelPackage>
+								<apiPackage>com.atsistemas.cygnus.${project.artifactId}.generated.api</apiPackage>
 								<configOptions>
 									<interfaceOnly>true</interfaceOnly>
 								</configOptions>

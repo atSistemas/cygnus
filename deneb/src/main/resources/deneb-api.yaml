@@ -1,0 +1,39 @@
+swagger: '2.0'
+info:
+  version: 0.1-SNAPSHOT
+  title: Cygnus - Deneb
+
+basePath: /deneb  
+paths:
+  '/ping':
+    get:
+      responses:
+        200:
+          description: Response from Deneb
+          schema:
+            $ref: '#/definitions/PingResponse'
+            
+  '/ping/{service}':
+    get:
+      parameters:
+      - name: service
+        in: path
+        description: service name to forward ping
+        type: string
+        required: true
+      responses:
+        200:
+          description: Response from Deneb
+          schema:
+            $ref: '#/definitions/PingResponse'
+      
+definitions:
+  PingResponse:
+    type: object
+    required:
+      - id
+    properties:
+      id:
+        type: string
+      responseMessage:
+        type: string

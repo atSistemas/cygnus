@@ -21,6 +21,9 @@
 		
 		<maven.resources.plugin.version>3.0.2</maven.resources.plugin.version>
 		<version.dockerfile-maven>1.3.6</version.dockerfile-maven>
+		
+		
+		<image.root>cygnus</image.root>
 	</properties>
 
 	<build>
@@ -82,7 +85,8 @@
 					</executions>
 					<configuration>
 						<contextDirectory>${project.build.directory}</contextDirectory>
-						<repository>${project.groupId}/${project.artifactId}</repository>
+						<repository>${image.root}/${project.artifactId}</repository>
+						<forceTags>true</forceTags>
 						<imageTags>
 				           <imageTag>${project.version}</imageTag>
 				           <imageTag>latest</imageTag>

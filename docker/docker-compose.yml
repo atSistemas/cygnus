@@ -3,18 +3,18 @@ version: '3'
 services:
 
   config-server:
-    image: config-server
+    image: ${IMAGE_ROOT}/config-server
     container_name: config-server
     ports:
-      - "${CONFIG_SERVER_PORT}:${CONFIG_SERVER_PORT}"
+      - "${CONFIG_SERVER_PORT}:8080"
     environment:
       - CONFIG_SERVER_PORT=${CONFIG_SERVER_PORT}
       - SPRING_PROFILES_ACTIVE=${SPRING_PROFILES_ACTIVE}
       - LOCAL_CONFIG_REPO_PATH=${LOCAL_CONFIG_REPO_PATH}
     depends_on:
       - rabbitmq
-    volumes:
-      - ${LOCAL_CONFIG_REPO_PATH}:/cygnus-config
+#    volumes:
+#      - ${LOCAL_CONFIG_REPO_PATH}:/cygnus-config
 
   rabbitmq:
     image: rabbitmq:3-management
@@ -23,10 +23,10 @@ services:
       - "15672:15672"
 
   eureka-server:
-    image: eureka-server
+    image: ${IMAGE_ROOT}/eureka-server
     container_name: eureka-server
     ports:
-      - "${EUREKA_SERVER_PORT}:${EUREKA_SERVER_PORT}"
+      - "${EUREKA_SERVER_PORT}:8080"
     environment:
       - SPRING_PROFILES_ACTIVE=${SPRING_PROFILES_ACTIVE}
       - EUREKA_SERVER_PORT=${EUREKA_SERVER_PORT}
@@ -36,10 +36,10 @@ services:
       - config-server
   
   admin-server:
-    image: admin-server
+    image: ${IMAGE_ROOT}/admin-server
     container_name: admin-server
     ports:
-      - "${ADMIN_SERVER_PORT}:${ADMIN_SERVER_PORT}"
+      - "${ADMIN_SERVER_PORT}:8080"
     environment:
       - SPRING_PROFILES_ACTIVE=${SPRING_PROFILES_ACTIVE}
       - ADMIN_SERVER_PORT=${ADMIN_SERVER_PORT}
@@ -51,7 +51,7 @@ services:
       - eureka-server
   
   hystrix-dashboard:
-    image: hystrix-dashboard
+    image: ${IMAGE_ROOT}/hystrix-dashboard
     container_name: hystrix-dashboard
     ports:
       - "${HYSTRIX_DASHBOARD_PORT}:${HYSTRIX_DASHBOARD_PORT}"
@@ -67,7 +67,7 @@ services:
       - deneb
   
   turbine:
-    image: turbine
+    image: ${IMAGE_ROOT}/turbine
     container_name: turbine
     ports:
       - "${TURBINE_PORT}:${TURBINE_PORT}"
@@ -83,7 +83,7 @@ services:
       - deneb
       
   sadr:
-    image: sadr
+    image: ${IMAGE_ROOT}/sadr
     container_name: sadr
     ports:
       - "3333:3333"
@@ -96,13 +96,9 @@ services:
       - config-server
       - eureka-server
       - rabbitmq
-    deploy:
-      replicas: 2
-      restart_policy:
-        condition: on-failure
       
   deneb:
-    image: deneb
+    image: ${IMAGE_ROOT}/deneb
     container_name: deneb
     ports:
       - "2222:2222"
@@ -118,10 +114,10 @@ services:
       - sadr
 
   zuul-proxy:
-    image: zuul-proxy
+    image: ${IMAGE_ROOT}/zuul-proxy
     container_name: zuul-proxy
     ports:
-      - "${ZUUL_PORT}:${ZUUL_PORT}"
+      - "${ZUUL_PORT}:8080"
     environment:
       - SPRING_PROFILES_ACTIVE=${SPRING_PROFILES_ACTIVE}
       - ZUUL_PORT=${ZUUL_PORT}

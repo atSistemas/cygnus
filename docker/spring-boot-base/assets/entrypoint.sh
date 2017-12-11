@@ -17,7 +17,8 @@ printf "
                      .ZZZZZZZZZZZZZZ.     .7777777777777.  .?????????????????????                   
                        ..ZZZZZZZZ?.         .777777777.    .?????????????????????                   
                                               .77777.                                               
-                                                                                                    "
+                                                                                                    
+"
 
 if [ "$DEBUG" = true ]; then
   printf "Running the application in debug mode.\n"

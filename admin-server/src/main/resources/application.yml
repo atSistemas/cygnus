@@ -1,7 +1,6 @@
 # HTTP Server
 server:
-  port: ${ADMIN_SERVER_PORT:9999}
-
+  port: 9999
       
 # Discovery Server Access
 eureka:

@@ -1,4 +1,4 @@
-version: '3'
+version: '2.1'
 
 services:
 
@@ -12,8 +12,6 @@ services:
       - CONFIG_REPO=${CONFIG_REPO}
     depends_on:
       - rabbitmq
-#    volumes:
-#      - ${LOCAL_CONFIG_REPO_PATH}:/cygnus-config
 
   rabbitmq:
     image: rabbitmq:3-management
@@ -49,8 +47,8 @@ services:
       - CONFIG_SERVER_ENDPOINT=${CONFIG_SERVER_ENDPOINT}
       - CONFIG_RETRY_INITIAL_INTERVAL=${CONFIG_RETRY_INITIAL_INTERVAL}
     depends_on:
-      - config-server
-      - eureka-server
+      eureka-server:
+        condition: service_healthy
   
   hystrix-dashboard:
     image: ${IMAGE_ROOT}/hystrix-dashboard
@@ -63,11 +61,9 @@ services:
       - CONFIG_SERVER_ENDPOINT=${CONFIG_SERVER_ENDPOINT}
       - CONFIG_RETRY_INITIAL_INTERVAL=${CONFIG_RETRY_INITIAL_INTERVAL}
     depends_on:
-      - config-server
-      - eureka-server
-      - sadr
-      - deneb
-  
+      eureka-server:
+          condition: service_healthy
+
   turbine:
     image: ${IMAGE_ROOT}/turbine
     container_name: turbine
@@ -79,39 +75,34 @@ services:
       - CONFIG_SERVER_ENDPOINT=${CONFIG_SERVER_ENDPOINT}
       - CONFIG_RETRY_INITIAL_INTERVAL=${CONFIG_RETRY_INITIAL_INTERVAL}
     depends_on:
-      - config-server
-      - eureka-server
-      - sadr
-      - deneb
-      
+      eureka-server:
+        condition: service_healthy
+
   sadr:
     image: ${IMAGE_ROOT}/sadr
     container_name: sadr
     ports:
-      - "3333:3333"
+      - "${SADR_PORT}:8080"
     environment:
       - SPRING_PROFILES_ACTIVE=${SPRING_PROFILES_ACTIVE}
       - CONFIG_SERVER_ENDPOINT=${CONFIG_SERVER_ENDPOINT}
       - CONFIG_RETRY_INITIAL_INTERVAL=${CONFIG_RETRY_INITIAL_INTERVAL}
     depends_on:
-      - config-server
-      - eureka-server
-      - rabbitmq
+      eureka-server:
+          condition: service_healthy
       
   deneb:
     image: ${IMAGE_ROOT}/deneb
     container_name: deneb
     ports:
-      - "2222:2222"
+      - "${DENEB_PORT}:8080"
     environment:
       - SPRING_PROFILES_ACTIVE=${SPRING_PROFILES_ACTIVE}
       - CONFIG_SERVER_ENDPOINT=${CONFIG_SERVER_ENDPOINT}
       - CONFIG_RETRY_INITIAL_INTERVAL=${CONFIG_RETRY_INITIAL_INTERVAL}
     depends_on:
-      - config-server
-      - eureka-server
-      - rabbitmq
-      - sadr
+      eureka-server:
+        condition: service_healthy
 
   zuul-proxy:
     image: ${IMAGE_ROOT}/zuul-proxy
@@ -123,12 +114,8 @@ services:
       - CONFIG_SERVER_ENDPOINT=${CONFIG_SERVER_ENDPOINT}
       - CONFIG_RETRY_INITIAL_INTERVAL=${CONFIG_RETRY_INITIAL_INTERVAL}
     depends_on:
-      - config-server
-      - eureka-server
-      - sadr
-      - deneb
-      - admin-server
-      - hystrix-dashboard
+      eureka-server:
+        condition: service_healthy
   
       
   

@@ -1,5 +1,5 @@
 server:
-  port: ${CONFIG_SERVER_PORT:8888}
+  port: ${DEFAULT_PORT:8888}
 
 logging:
   file: logs/${spring.application.name}.log
@@ -32,23 +32,27 @@ spring:
         git:
           uri: ${CONFIG_REPO}
           default-label: develop
-
-#---
-#spring:
-#  profiles: native
-#  cloud:
-#    config:
-#      server:
-#        native:
-#          searchLocations: file:/media/dani/Data/workspaces/STS/cygnus-config/{profile}
+          searchPaths:
+          - local
+          - docker
 
 ---
 spring:
-  profiles: local
+  profiles: local-repo
   cloud:
     config:
       server:
         git:
-          uri: file:/${HOME}/git/cygnus-config
+          uri: file:///cygnus-config
+          default-label: develop
           searchPaths:
-          - dev
+          - local
+          - docker
+---
+spring:
+  profiles: native
+  cloud:
+    config:
+      server:
+        native:
+          searchLocations: file://${LOCAL_CONFIG_REPO}/{profile}

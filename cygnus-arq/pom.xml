@@ -17,7 +17,9 @@
 		<spring.cloud.version>Dalston.SR4</spring.cloud.version>
 		<spring.boot.version>1.5.4.RELEASE</spring.boot.version>
 		<springfox.version>2.7.0</springfox.version>
-		<docker.maven.plugin.version>0.4.13</docker.maven.plugin.version>
+		<swagger-codegen-maven-plugin.version>2.2.3</swagger-codegen-maven-plugin.version>
+		<build-helper-maven-plugin.version>3.0.0</build-helper-maven-plugin.version>
+		<docker.maven.plugin.version>1.0.0</docker.maven.plugin.version>
 	</properties>
 
 	<build>
@@ -26,17 +28,22 @@
 				<plugin>
 					<groupId>org.springframework.boot</groupId>
 					<artifactId>spring-boot-maven-plugin</artifactId>
+					<executions>
+						<execution>
+							<goals>
+								<goal>repackage</goal>
+							</goals>
+						</execution>
+					</executions>
 				</plugin>
 				<plugin>
 					<groupId>com.spotify</groupId>
 					<artifactId>docker-maven-plugin</artifactId>
 					<version>${docker.maven.plugin.version}</version>
 					<configuration>
-						<imageName>${project.artifactId}</imageName>
+						<imageName>${project.groupId}/${project.artifactId}</imageName>
 						<baseImage>anapsix/alpine-java</baseImage>
-						<entryPoint>["java", "-jar", "/${project.build.finalName}.jar"]</entryPoint>
-						<!-- copy the service's jar file from target into the root directory 
-							of the image -->
+						<entryPoint>["java", "-Xmx64m", "-jar", "/${project.build.finalName}.jar"]</entryPoint>
 						<resources>
 							<resource>
 								<targetPath>/</targetPath>
@@ -55,6 +62,49 @@
 						</execution>
 					</executions>
 				</plugin>
+				<plugin>
+					<groupId>io.swagger</groupId>
+					<artifactId>swagger-codegen-maven-plugin</artifactId>
+					<version>${swagger-codegen-maven-plugin.version}</version>
+					<executions>
+						<execution>
+							<id>generate-spring-mvc</id>
+							<phase>generate-sources</phase>
+							<goals>
+								<goal>generate</goal>
+							</goals>
+							<configuration>
+								<inputSpec>${project.build.sourceDirectory}/../resources/${project.artifactId}-api.yaml</inputSpec>
+								<language>spring</language>
+								<modelPackage>com.atsistemas.${project.artifactId}.generated.model</modelPackage>
+								<apiPackage>com.atsistemas.${project.artifactId}.generated.api</apiPackage>
+								<configOptions>
+									<interfaceOnly>true</interfaceOnly>
+								</configOptions>
+							</configuration>
+						</execution>
+					</executions>
+				</plugin>
+				<plugin>
+					<groupId>org.codehaus.mojo</groupId>
+					<artifactId>build-helper-maven-plugin</artifactId>
+					<version>${build-helper-maven-plugin.version}</version>
+					<executions>
+						<execution>
+							<id>add-source</id>
+							<phase>generate-sources</phase>
+							<goals>
+								<goal>add-source</goal>
+							</goals>
+							<configuration>
+								<sources>
+									<source>target/generated-sources/swagger/src/main/java/</source>
+								</sources>
+							</configuration>
+						</execution>
+					</executions>
+				</plugin>
+
 			</plugins>
 		</pluginManagement>
 	</build>

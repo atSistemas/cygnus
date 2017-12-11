@@ -3,7 +3,7 @@ version: '3'
 services:
 
   config-server:
-    image: config-server
+    image: ${GROUP_ID}/config-server
     container_name: config-server
     ports:
       - "${CONFIG_SERVER_PORT}:${CONFIG_SERVER_PORT}"

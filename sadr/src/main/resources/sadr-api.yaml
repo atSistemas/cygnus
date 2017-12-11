@@ -1,0 +1,31 @@
+swagger: '2.0'
+info:
+  version: 0.1-SNAPSHOT
+  title: Cygnus - Sadr
+  description: |
+basePath: /sadr   
+paths:
+  /ping:
+    get:
+      parameters:
+      - name: message
+        in: query
+        description: message
+        type: string
+        required: true
+      responses:
+        200:
+          description: Response from Sadr
+          schema:
+            $ref: '#/definitions/PingResponse'
+      
+definitions:
+  PingResponse:
+    type: object
+    required:
+      - id
+    properties:
+      id:
+        type: string
+      responseMessage:
+        type: string

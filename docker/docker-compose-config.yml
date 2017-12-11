@@ -9,11 +9,11 @@ services:
     environment:
       - CONFIG_SERVER_PORT=${CONFIG_SERVER_PORT}
       - SPRING_PROFILES_ACTIVE=${SPRING_PROFILES_ACTIVE}
-      - CONFIG_REPO=file:/cygnus-config
+      - LOCAL_CONFIG_REPO_PATH=file:/cygnus-config
     depends_on:
       - rabbitmq
     volumes:
-      - ${CONFIG_SERVER_REPO}:/cygnus-config
+      - ${LOCAL_CONFIG_REPO_PATH}:/cygnus-config
 
   rabbitmq:
     image: rabbitmq

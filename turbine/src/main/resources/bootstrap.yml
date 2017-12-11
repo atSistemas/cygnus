@@ -2,11 +2,11 @@ spring:
   application:
     name: turbine
   profiles:
-    active: ${SPRING_PROFILES_ACTIVE}
+    active: ${SPRING_PROFILES_ACTIVE:local}
 
 ---    
 spring:
-  profiles: dev
+  profiles: local
   cloud:
     config:
       failFast: false

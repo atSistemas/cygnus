@@ -16,7 +16,7 @@ spring:
   application:
     name: config-server
   profiles:
-    active: ${SPRING_PROFILES_ACTIVE}
+    active: ${SPRING_PROFILES_ACTIVE:local}
   rabbitmq:
     host: rabbitmq
     port: 5672
@@ -25,36 +25,30 @@ spring:
     
 ---    
 spring:
-  profiles: github
-  cloud:
-    config:
-      server:
-        git:
-          uri: https://github.com/atSistemas/cygnus-config
----
-spring:
   profiles: docker
   cloud:
     config:
       server:
         git:
-          uri: file:/cygnus-config
----
-spring:
-  profiles: native
-  cloud:
-    config:
-      server:
-        native:
-          searchLocations: file:/media/dani/Data/workspaces/STS/cygnus-config/{profile}
+          uri: ${CONFIG_REPO}
+          default-label: develop
+
+#---
+#spring:
+#  profiles: native
+#  cloud:
+#    config:
+#      server:
+#        native:
+#          searchLocations: file:/media/dani/Data/workspaces/STS/cygnus-config/{profile}
 
 ---
 spring:
-  profiles: dev
+  profiles: local
   cloud:
     config:
       server:
         git:
-          uri: file:/media/dani/Data/workspaces/STS/cygnus-config
+          uri: file:/${HOME}/git/cygnus-config
           searchPaths:
           - dev

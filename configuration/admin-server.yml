@@ -1,0 +1,15 @@
+# HTTP Server
+server:
+  port: ${DEFAULT_PORT:9999}
+
+management:
+  security:
+    enabled: false
+    
+# Discovery Server Access
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: ${EUREKA_ENDPOINT}
+  instance:
+     preferIpAddress: true

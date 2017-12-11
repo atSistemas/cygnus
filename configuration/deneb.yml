@@ -1,0 +1,33 @@
+# HTTP Server
+server:
+  port: ${DEFAULT_PORT:2222}
+
+management:
+  security:
+    enabled: false
+
+# Discovery Server Access
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: ${EUREKA_ENDPOINT}
+
+logging:
+  file: logs/${spring.application.name}.log
+  level:
+    com.netflix.discovery: 'OFF'
+    org.springframework.cloud: 'DEBUG'
+    org.springframework.web: 'INFO'
+    com.atsistemas: 'DEBUG'
+
+cygnus:
+  sadr:
+    name: sadr
+    pingUrl: http://${cygnus.sadr.name}/ping
+
+spring:
+   rabbitmq:
+     host: rabbitmq
+     port: 5672
+     username: guest
+     password: guest

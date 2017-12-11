@@ -1,0 +1,24 @@
+# HTTP Server
+server:
+  port: ${DEFAULT_PORT:3333}
+
+#management:
+#  context-path: /sadr
+
+management:
+  security:
+    enabled: false
+
+# Discovery Server Access
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: ${EUREKA_ENDPOINT}
+
+logging:
+  file: logs/${spring.application.name}.log
+  level:
+    com.netflix.discovery: 'OFF'
+    org.springframework.cloud: 'INFO'
+    org.springframework.web: 'INFO'
+    com.atsistemas: 'DEBUG'

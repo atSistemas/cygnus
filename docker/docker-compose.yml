@@ -10,7 +10,7 @@ services:
     environment:
       - CONFIG_SERVER_PORT=${CONFIG_SERVER_PORT}
       - SPRING_PROFILES_ACTIVE=${SPRING_PROFILES_ACTIVE}
-      - LOCAL_CONFIG_REPO_PATH=${LOCAL_CONFIG_REPO_PATH}
+      - CONFIG_REPO=${CONFIG_REPO}
     depends_on:
       - rabbitmq
 #    volumes:

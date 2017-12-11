@@ -1,0 +1,20 @@
+# HTTP Server
+server:
+  port: ${DEFAULT_PORT:8989}
+
+management:
+  security:
+    enabled: false
+
+logging:
+  file: logs/${spring.application.name}.log
+  level:
+    com.netflix.discovery: 'OFF'
+    org.springframework.cloud: 'DEBUG'
+    org.springframework.web: 'INFO'
+    com.atsistemas: 'DEBUG'
+
+turbine:
+  aggregator:
+    clusterConfig: CYGNUS
+  appConfig: deneb

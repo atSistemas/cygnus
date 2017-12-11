@@ -1,0 +1,25 @@
+server:
+  port: ${DEFAULT_PORT:8080}
+
+management:
+  security:
+    enabled: false
+
+logging:
+  file: logs/${spring.application.name}.log
+  level:
+    com.netflix.discovery: 'OFF'
+    org.springframework.cloud: 'DEBUG'
+    com.atsistemas: 'DEBUG'
+
+# Discovery Server Access
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: ${EUREKA_ENDPOINT}
+
+zuul:
+  routes:
+    sadr: /sadr/**
+    deneb: /deneb/**
+    zuul-proxy: /self/**

@@ -23,7 +23,7 @@ spring:
     username: guest
     password: guest
     
----    
+---
 spring:
   profiles: docker
   cloud:
@@ -31,16 +31,8 @@ spring:
       server:
         git:
           uri: ${CONFIG_REPO}
-          default-label: develop
-
-#---
-#spring:
-#  profiles: native
-#  cloud:
-#    config:
-#      server:
-#        native:
-#          searchLocations: file:/media/dani/Data/workspaces/STS/cygnus-config/{profile}
+          default-label: spotify_dockerfile_plugin        
+          local: '/configuration'
 
 ---
 spring:
@@ -49,6 +41,6 @@ spring:
     config:
       server:
         git:
-          uri: file:/${HOME}/git/cygnus-config
-          searchPaths:
-          - dev
+          uri: ${GIT_URI}
+          default-label: spring_cloud_basics
+          searchPaths: '/configuration'

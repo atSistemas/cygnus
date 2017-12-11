@@ -1,6 +1,6 @@
 spring:
   application:
-    name: zuul-proxy
+    name: zuul
   profiles:
     active: ${SPRING_PROFILES_ACTIVE:local}
 

@@ -30,6 +30,11 @@ services:
       - SPRING_PROFILES_ACTIVE=${SPRING_PROFILES_ACTIVE}
       - CONFIG_SERVER_ENDPOINT=${CONFIG_SERVER_ENDPOINT}
       - CONFIG_RETRY_INITIAL_INTERVAL=${CONFIG_RETRY_INITIAL_INTERVAL}
+    healthcheck:
+      test: ["CMD", "wget", "http://localhost:8080", "-O", "/tmp/wget"]
+      interval: 10s
+      timeout: 5s
+      retries: 60
     depends_on:
       - config-server
   

@@ -16,7 +16,7 @@ logging:
 eureka:
   client:
     serviceUrl:
-      defaultZone: http://eureka-server:8080
+      defaultZone: http://eureka-server:8080/eureka/
 
 zuul:
   routes:

@@ -10,7 +10,7 @@ management:
 eureka:
   client:
     serviceUrl:
-      defaultZone: http://eureka-server:8080
+      defaultZone: http://eureka-server:8080/eureka/
 
 logging:
   file: logs/${spring.application.name}.log

@@ -12,46 +12,16 @@
 	<name>cygnus-agregate</name>
 	<url>http://maven.apache.org</url>
 
-	<profiles>
-		<profile>
-			<id>all</id>
-			<activation>
-				<property>
-					<name>custom-modules</name>
-					<value>!true</value>
-				</property>
-			</activation>
-			<modules>
-				<module>cygnus-arq</module>
-				<module>cygnus-model</module>
-				<module>config-server</module>
-				<module>eureka-server</module>
-				<module>admin-server</module>
-				<module>hystrix-dashboard</module>
-				<module>zuul-proxy</module>
-				<module>turbine</module>
-				<module>deneb</module>
-				<module>sadr</module>
-			</modules>
-		</profile>
-		<profile>
-			<id>custom</id>
-			<activation>
-				<property>
-					<name>custom-modules</name>
-					<value>true</value>
-				</property>
-			</activation>
-			<modules>
-<!-- 				<module>config-server</module> -->
-				<module>eureka-server</module>
-				<module>admin-server</module>
-				<module>hystrix-dashboard</module>
-				<module>zuul-proxy</module>
-				<module>turbine</module>
-				<module>deneb</module>
-				<module>sadr</module>
-			</modules>
-		</profile>
-	</profiles>
+	<modules>
+		<module>cygnus-arq</module>
+		<module>cygnus-model</module>
+		<module>config-server</module>
+		<module>eureka</module>
+		<module>sadr</module>
+<!-- 		<module>deneb</module> -->
+<!-- 		<module>admin-server</module> -->
+<!-- 		<module>hystrix-dashboard</module> -->
+<!-- 		<module>zuul</module> -->
+<!-- 		<module>turbine</module> -->
+	</modules>
 </project>

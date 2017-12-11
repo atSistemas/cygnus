@@ -22,11 +22,6 @@ eureka:
     serviceUrl:
       defaultZone: http://localhost:8761/eureka/
 
-cygnus:
-  sadr:
-    name: sadr
-    pingUrl: http://${cygnus.sadr.name}/ping/
-
 spring:
    rabbitmq:
      host: rabbitmq

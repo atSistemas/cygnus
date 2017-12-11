@@ -23,6 +23,7 @@
 			</plugin>
 			<plugin>
 				<artifactId>maven-resources-plugin</artifactId>
+
 			</plugin>
 			<plugin>
 				<groupId>com.spotify</groupId>

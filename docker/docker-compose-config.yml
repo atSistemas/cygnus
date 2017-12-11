@@ -1,19 +1,20 @@
-version: '2'
+version: '3'
 services:
 
   config-server:
-    image: config-server
+    image: ${GROUP_ID}/config-server
     container_name: config-server
     ports:
-      - "${CONFIG_SERVER_PORT}:${CONFIG_SERVER_PORT}"
+      - "8888:${DEFAULT_PORT}"
     environment:
-      - CONFIG_SERVER_PORT=${CONFIG_SERVER_PORT}
-      - SPRING_PROFILES_ACTIVE=${SPRING_PROFILES_ACTIVE}
-      - LOCAL_CONFIG_REPO_PATH=file:/cygnus-config
+      DEFAULT_PORT: ${DEFAULT_PORT}
+      SPRING_PROFILES_ACTIVE: ${CONFIG_SERVER_SPRING_PROFILES_ACTIVE}
+      CONFIG_REPO: ${CONFIG_REPO}
+      LOCAL_CONFIG_REPO: ${LOCAL_CONFIG_REPO}
     depends_on:
       - rabbitmq
     volumes:
-      - ${LOCAL_CONFIG_REPO_PATH}:/cygnus-config
+      - ${LOCAL_CONFIG_REPO}:/cygnus-config
 
   rabbitmq:
     image: rabbitmq
@@ -21,15 +22,3 @@ services:
     ports:
       - "15672:15672"
 
-  eureka-server:
-    image: eureka-server
-    container_name: eureka-server
-    ports:
-      - "${EUREKA_SERVER_PORT}:${EUREKA_SERVER_PORT}"
-    environment:
-      - SPRING_PROFILES_ACTIVE=${SPRING_PROFILES_ACTIVE}
-      - EUREKA_SERVER_PORT=${EUREKA_SERVER_PORT}
-      - CONFIG_SERVER_ENDPOINT=${CONFIG_SERVER_ENDPOINT}
-      - CONFIG_RETRY_INITIAL_INTERVAL=${CONFIG_RETRY_INITIAL_INTERVAL}
-    depends_on:
-      - config-server

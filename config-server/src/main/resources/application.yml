@@ -36,7 +36,7 @@ spring:
 
 ---
 spring:
-  profiles: local
+  profiles: local-repo
   cloud:
     config:
       server:

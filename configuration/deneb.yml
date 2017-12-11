@@ -1,6 +1,6 @@
 # HTTP Server
 server:
-  port: ${DEFAULT_PORT:2222}
+  port: 8080
 
 management:
   security:
@@ -10,7 +10,7 @@ management:
 eureka:
   client:
     serviceUrl:
-      defaultZone: ${EUREKA_ENDPOINT}
+      defaultZone: http://eureka-server:8080
 
 logging:
   file: logs/${spring.application.name}.log

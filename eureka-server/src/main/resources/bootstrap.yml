@@ -12,7 +12,7 @@ spring:
       failFast: false
       uri: http://localhost:8888
 
----    
+---
 spring:
   profiles: docker
   cloud:

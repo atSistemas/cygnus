@@ -1,6 +1,6 @@
 server:
-  port: ${DEFAULT_PORT:1111}
-
+  port: 8080
+  
 management:
   security:
     enabled: false

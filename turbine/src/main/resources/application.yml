@@ -5,7 +5,7 @@ info:
   
 # HTTP Server
 server:
-  port: ${TURBINE_PORT:9898}
+  port: 9898
 
 turbine:
   stream:
@@ -32,7 +32,7 @@ spring:
 eureka:
   client:
     serviceUrl:
-      defaultZone: http://localhost:1111/eureka/
+      defaultZone: http://localhost:8761/eureka/
 
 logging:
   file: logs/${spring.application.name}.log

@@ -1,6 +1,6 @@
 # HTTP Server
 server:
-  port: ${DEFAULT_PORT:3333}
+  port: 8080
 
 #management:
 #  context-path: /sadr
@@ -13,7 +13,7 @@ management:
 eureka:
   client:
     serviceUrl:
-      defaultZone: ${EUREKA_ENDPOINT}
+      defaultZone: http://eureka-server:8080
 
 logging:
   file: logs/${spring.application.name}.log

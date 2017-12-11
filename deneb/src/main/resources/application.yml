@@ -2,7 +2,7 @@
 
 # HTTP Server
 server:
-  port: ${PORT:2222}
+  port: 2222
 
 logging:
   file: logs/${spring.application.name}.log
@@ -20,7 +20,7 @@ management:
 eureka:
   client:
     serviceUrl:
-      defaultZone: http://localhost:1111/eureka/
+      defaultZone: http://localhost:8761/eureka/
 
 cygnus:
   sadr:

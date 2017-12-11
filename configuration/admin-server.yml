@@ -1,6 +1,6 @@
 # HTTP Server
 server:
-  port: ${DEFAULT_PORT:9999}
+  port: 8080
 
 management:
   security:
@@ -10,6 +10,6 @@ management:
 eureka:
   client:
     serviceUrl:
-      defaultZone: ${EUREKA_ENDPOINT}
+      defaultZone: http://eureka-server:8080
   instance:
      preferIpAddress: true

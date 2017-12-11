@@ -1,5 +1,5 @@
 server:
-  port: ${DEFAULT_PORT:8080}
+  port: 8080
 
 management:
   security:
@@ -16,7 +16,7 @@ logging:
 eureka:
   client:
     serviceUrl:
-      defaultZone: ${EUREKA_ENDPOINT}
+      defaultZone: http://eureka-server:8080
 
 zuul:
   routes:

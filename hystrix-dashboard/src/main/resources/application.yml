@@ -2,7 +2,7 @@
 
 # HTTP Server
 server:
-  port: ${HYSTRIX_DASHBOARD_PORT:9000}
+  port: 9000
   
 logging:
   file: logs/${spring.application.name}.log
@@ -24,4 +24,4 @@ turbine:
 eureka:
   client:
     serviceUrl:
-      defaultZone: http://localhost:1111/eureka/
+      defaultZone: http://localhost:8761/eureka/

@@ -1,6 +1,6 @@
 # HTTP Server
 server:
-  port: ${DEFAULT_PORT:9000}
+  port: 8080
 
 management:
   security:
@@ -23,4 +23,4 @@ turbine:
 eureka:
   client:
     serviceUrl:
-      defaultZone: ${EUREKA_ENDPOINT}
+      defaultZone: http://eureka-server:8080

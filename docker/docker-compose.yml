@@ -28,7 +28,6 @@ services:
       - "${EUREKA_SERVER_PORT}:8080"
     environment:
       - SPRING_PROFILES_ACTIVE=${SPRING_PROFILES_ACTIVE}
-      - EUREKA_SERVER_PORT=${EUREKA_SERVER_PORT}
       - CONFIG_SERVER_ENDPOINT=${CONFIG_SERVER_ENDPOINT}
       - CONFIG_RETRY_INITIAL_INTERVAL=${CONFIG_RETRY_INITIAL_INTERVAL}
     depends_on:
@@ -44,7 +43,6 @@ services:
       - ADMIN_SERVER_PORT=${ADMIN_SERVER_PORT}
       - CONFIG_SERVER_ENDPOINT=${CONFIG_SERVER_ENDPOINT}
       - CONFIG_RETRY_INITIAL_INTERVAL=${CONFIG_RETRY_INITIAL_INTERVAL}
-      - EUREKA_ENDPOINT=${EUREKA_ENDPOINT}
     depends_on:
       - config-server
       - eureka-server
@@ -53,7 +51,7 @@ services:
     image: ${IMAGE_ROOT}/hystrix-dashboard
     container_name: hystrix-dashboard
     ports:
-      - "${HYSTRIX_DASHBOARD_PORT}:${HYSTRIX_DASHBOARD_PORT}"
+      - "${HYSTRIX_DASHBOARD_PORT}:8080"
     environment:
       - SPRING_PROFILES_ACTIVE=${SPRING_PROFILES_ACTIVE}
       - HYSTRIX_DASHBOARD_PORT=${HYSTRIX_DASHBOARD_PORT}
@@ -69,7 +67,7 @@ services:
     image: ${IMAGE_ROOT}/turbine
     container_name: turbine
     ports:
-      - "${TURBINE_PORT}:${TURBINE_PORT}"
+      - "${TURBINE_PORT}:8080"
     environment:
       - SPRING_PROFILES_ACTIVE=${SPRING_PROFILES_ACTIVE}
       - TURBINE_PORT=${TURBINE_PORT}
@@ -90,7 +88,6 @@ services:
       - SPRING_PROFILES_ACTIVE=${SPRING_PROFILES_ACTIVE}
       - CONFIG_SERVER_ENDPOINT=${CONFIG_SERVER_ENDPOINT}
       - CONFIG_RETRY_INITIAL_INTERVAL=${CONFIG_RETRY_INITIAL_INTERVAL}
-      - EUREKA_ENDPOINT=${EUREKA_ENDPOINT}
     depends_on:
       - config-server
       - eureka-server
@@ -105,7 +102,6 @@ services:
       - SPRING_PROFILES_ACTIVE=${SPRING_PROFILES_ACTIVE}
       - CONFIG_SERVER_ENDPOINT=${CONFIG_SERVER_ENDPOINT}
       - CONFIG_RETRY_INITIAL_INTERVAL=${CONFIG_RETRY_INITIAL_INTERVAL}
-      - EUREKA_ENDPOINT=${EUREKA_ENDPOINT}
     depends_on:
       - config-server
       - eureka-server
@@ -119,10 +115,8 @@ services:
       - "${ZUUL_PORT}:8080"
     environment:
       - SPRING_PROFILES_ACTIVE=${SPRING_PROFILES_ACTIVE}
-      - ZUUL_PORT=${ZUUL_PORT}
       - CONFIG_SERVER_ENDPOINT=${CONFIG_SERVER_ENDPOINT}
       - CONFIG_RETRY_INITIAL_INTERVAL=${CONFIG_RETRY_INITIAL_INTERVAL}
-      - EUREKA_ENDPOINT=${EUREKA_ENDPOINT}
     depends_on:
       - config-server
       - eureka-server

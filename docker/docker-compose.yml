@@ -4,15 +4,11 @@ services:
 
   config-server:
     image: ${IMAGE_ROOT}/config-server
-    container_name: config-server
     ports:
       - "${CONFIG_SERVER_PORT}:8080"
     environment:
       - SPRING_PROFILES_ACTIVE=${SPRING_PROFILES_ACTIVE}
       - CONFIG_REPO=${CONFIG_REPO}
-    depends_on:
-      - rabbitmq
-
     depends_on:
       - rabbitmq
 
@@ -22,9 +18,8 @@ services:
     ports:
       - "15672:15672"
 
-  eureka-server:
-    image: ${IMAGE_ROOT}/eureka-server
-    container_name: eureka-server
+  eureka:
+    image: ${IMAGE_ROOT}/eureka
     ports:
       - "${EUREKA_SERVER_PORT}:8080"
     environment:
@@ -50,7 +45,7 @@ services:
       - CONFIG_SERVER_ENDPOINT=${CONFIG_SERVER_ENDPOINT}
       - CONFIG_RETRY_INITIAL_INTERVAL=${CONFIG_RETRY_INITIAL_INTERVAL}
     depends_on:
-      eureka-server:
+      eureka:
         condition: service_healthy
   
   hystrix-dashboard:
@@ -64,7 +59,7 @@ services:
       - CONFIG_SERVER_ENDPOINT=${CONFIG_SERVER_ENDPOINT}
       - CONFIG_RETRY_INITIAL_INTERVAL=${CONFIG_RETRY_INITIAL_INTERVAL}
     depends_on:
-      eureka-server:
+      eureka:
           condition: service_healthy
 
   turbine:
@@ -78,7 +73,7 @@ services:
       - CONFIG_SERVER_ENDPOINT=${CONFIG_SERVER_ENDPOINT}
       - CONFIG_RETRY_INITIAL_INTERVAL=${CONFIG_RETRY_INITIAL_INTERVAL}
     depends_on:
-      eureka-server:
+      eureka:
         condition: service_healthy
 
   sadr:
@@ -91,7 +86,7 @@ services:
       - CONFIG_SERVER_ENDPOINT=${CONFIG_SERVER_ENDPOINT}
       - CONFIG_RETRY_INITIAL_INTERVAL=${CONFIG_RETRY_INITIAL_INTERVAL}
     depends_on:
-      eureka-server:
+      eureka:
           condition: service_healthy
       
   deneb:
@@ -104,12 +99,12 @@ services:
       - CONFIG_SERVER_ENDPOINT=${CONFIG_SERVER_ENDPOINT}
       - CONFIG_RETRY_INITIAL_INTERVAL=${CONFIG_RETRY_INITIAL_INTERVAL}
     depends_on:
-      eureka-server:
+      eureka:
         condition: service_healthy
 
-  zuul-proxy:
-    image: ${IMAGE_ROOT}/zuul-proxy
-    container_name: zuul-proxy
+  zuul:
+    image: ${IMAGE_ROOT}/zuul
+    container_name: zuul
     ports:
       - "${ZUUL_PORT}:8080"
     environment:
@@ -117,7 +112,7 @@ services:
       - CONFIG_SERVER_ENDPOINT=${CONFIG_SERVER_ENDPOINT}
       - CONFIG_RETRY_INITIAL_INTERVAL=${CONFIG_RETRY_INITIAL_INTERVAL}
     depends_on:
-      eureka-server:
+      eureka:
         condition: service_healthy
   
       

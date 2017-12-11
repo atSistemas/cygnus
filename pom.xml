@@ -18,10 +18,10 @@
 		<module>config-server</module>
 		<module>eureka</module>
 		<module>sadr</module>
-<!-- 		<module>deneb</module> -->
-<!-- 		<module>admin-server</module> -->
-<!-- 		<module>hystrix-dashboard</module> -->
-<!-- 		<module>zuul</module> -->
-<!-- 		<module>turbine</module> -->
+		<module>deneb</module>
+		<module>admin-server</module>
+		<module>hystrix-dashboard</module>
+		<module>zuul</module>
+		<module>turbine</module>
 	</modules>
 </project>

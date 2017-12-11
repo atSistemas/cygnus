@@ -1,5 +1,5 @@
 server:
-  port: ${CONFIG_SERVER_PORT:8888}
+  port: 8080
 
 logging:
   file: logs/${spring.application.name}.log
@@ -41,6 +41,6 @@ spring:
     config:
       server:
         git:
-          uri: ${GIT_URI}
-          default-label: spring_cloud_basics
+          uri: ${CONFIG_REPO}
+          default-label: spotify_dockerfile_plugin
           searchPaths: '/configuration'

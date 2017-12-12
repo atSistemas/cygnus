@@ -25,11 +25,6 @@ eureka:
     serviceUrl:
       defaultZone: http://localhost:8761/eureka/
 
-cygnus:
-  deneb:
-    name: deneb
-    pingUrl: http://${cygnus.deneb.name}/ping/
-
 spring:
   rabbitmq:
     host: rabbitmq

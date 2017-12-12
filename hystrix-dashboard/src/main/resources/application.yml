@@ -15,10 +15,10 @@ management:
   security:
     enabled: false
     
-turbine:
-  appConfig: sadr,deneb
-  clusterNameExpression: new String("default")
-  combineHostPort: true
+#turbine:
+#  appConfig: sadr,deneb
+#  clusterNameExpression: new String("default")
+#  combineHostPort: true
 
 # Discovery Server Access
 eureka:

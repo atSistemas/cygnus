@@ -5,15 +5,18 @@ info:
   
 # HTTP Server
 server:
-  port: 9898
+  port: 8989
 
 turbine:
-  stream:
-    port: 8989
+#  stream:
+#    port: 8989
+  aggregator:
+    clusterConfig: CYGNUS
+  appConfig: DENEB
+  combineHostPort: true
+  InstanceMonitor.eventStream.skipLineLogic.enabled: false
   
-management:
-  port: -1
-
+  
 spring:
   rabbitmq:
     host: rabbitmq

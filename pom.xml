@@ -14,7 +14,6 @@
 
 	<modules>
 		<module>cygnus-arq</module>
-		<module>cygnus-model</module>
 		<module>config-server</module>
 		<module>eureka</module>
 		<module>sadr</module>

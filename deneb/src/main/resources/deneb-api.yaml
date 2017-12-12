@@ -7,25 +7,19 @@ basePath: /deneb
 paths:
   '/ping':
     get:
-      responses:
-        200:
-          description: Response from Deneb
-          schema:
-            $ref: '#/definitions/PingResponse'
-            
-  '/ping/{service}':
-    get:
       parameters:
-      - name: service
-        in: path
+      - name: forwardService
+        in: query
         description: service name to forward ping
         type: string
-        required: true
+        required: false
       responses:
         200:
           description: Response from Deneb
           schema:
             $ref: '#/definitions/PingResponse'
+        404:
+          description: Not found
       
 definitions:
   PingResponse:

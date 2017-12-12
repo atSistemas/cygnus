@@ -6,7 +6,7 @@ import org.junit.Test;
 
 class CygnusClientTest {
 
-	@Test
+//	@Test
 	void test() {
 		fail("Not yet implemented");
 	}

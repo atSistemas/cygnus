@@ -20,28 +20,21 @@ public class PingController implements PingApi{
 	private CygnusClient cygnusClient;
 
 	@Override
-	public ResponseEntity<PingResponse> pingGet() {
+	public ResponseEntity<PingResponse> pingGet(String forwardService) {
 		
 		logger.debug("--> pingGet");
-		PingResponse pingResponse = new PingResponse();
-		//TODO generate uuid
-		pingResponse.setId("0");
-		pingResponse.setResponseMessage("hello from Deneb");
-		return new ResponseEntity<PingResponse>(pingResponse, HttpStatus.OK);
+		
+		if(forwardService == null){
+			PingResponse pingResponse = new PingResponse();
+			//TODO generate uuid
+			pingResponse.setId("0");
+			pingResponse.setResponseMessage("hello from Deneb");
+			return new ResponseEntity<PingResponse>(pingResponse, HttpStatus.OK);
+		}
+		
+		logger.debug("--> forwarding ping to: {}",forwardService);
+		
+		return new ResponseEntity<PingResponse>(cygnusClient.pingService(forwardService), HttpStatus.OK);
 	}
 
-	@Override
-	public ResponseEntity<PingResponse> pingServiceGet(String serviceName) {
-		
-		logger.debug("--> pingServiceGet - serviceName: {}",serviceName);
-		
-		return new ResponseEntity<PingResponse>(cygnusClient.pingService(serviceName), HttpStatus.OK);
-		
-		
-		
-	}
-
-
-    
-   
 }

@@ -27,7 +27,7 @@ public class CygnusClient {
 		
 		logger.debug("--> pingService - serviceName: {}",serviceName);
 
-		return restTemplate.getForObject("http://" + serviceName + ":8080/ping", PingResponse.class);
+		return restTemplate.getForObject("http://" + serviceName + "/ping", PingResponse.class);
 		
 	}
 	
@@ -46,23 +46,6 @@ public class CygnusClient {
 		};
 	}
 	
-//	@Async
-//	@HystrixCommand(fallbackMethod="retrieveFallbackPingSadr")
-//	public Observable<PingResponse> pingSadrRx(PingRequest pingRequest){
-//		
-//		logger.debug("--> pingSadrAsync - id: {} - content: {}", pingRequest.getId(), pingRequest.getMessage());
-//		logger.debug("--> sadr endpoint: {}",pingUrl);
-//		
-//		
-//		return new ObservableResult<PingResponse>(){
-//			
-//			public PingResponse invoke() {
-//				return restTemplate.postForObject(pingUrl, pingRequest, PingResponse.class);
-//			    }
-//			
-//		};
-//
-//	}
 	
 	public PingResponse retrieveFallbackPingSadr(String serviceName){
 		

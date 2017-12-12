@@ -6,14 +6,17 @@ info:
 # HTTP Server
 server:
   port: 8989
+  
+management:
+  port: -1
+  security:
+    enabled: false
 
 turbine:
-#  stream:
-#    port: 8989
+  clusterNameExpression: new String("CYGNUS")
   aggregator:
     clusterConfig: CYGNUS
   appConfig: DENEB
-  combineHostPort: true
   InstanceMonitor.eventStream.skipLineLogic.enabled: false
   
   
@@ -24,12 +27,6 @@ spring:
     username: guest
     password: guest
     
-#  cloud:
-#    stream:
-#      bindings:
-#        input:
-#          destination: cygnusStream
-#          content-type: application/json
  
 # Discovery Server Access
 eureka:
